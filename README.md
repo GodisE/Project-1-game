@@ -19,26 +19,23 @@ timer runs  out
  
 1. in js:
 
-        let gameName
+        `let gameName
 
-   //initialize function to call other 
-   //created objects that start the game 
+   > initialize function to call other created objects that start the game 
     
         initialize() 
 
 
-    //is used to start the app in a web server
+    > is used to start the app in a web server
      
-    //place new game inside the initialize function to update the DOM with our set classes, functions, etc
-    //instanitate the class by using the keyword new 
-    //to create a new object of our class 
-    //runs the constructor function in the class
-    //returns the object and updates the DOM with all the 
-    //properties and methods from the class
+    > place new game inside the initialize function to update the DOM with our set classes, functions, etc
+    > instanitate the class by using the keyword new 
+    to create a new object of our class, runs the constructor function in the class, returns the object and updates the DOM with all the 
+    properties and methods from the class
 
         function initialize () {
             gameName = new Parameters()
-        }
+        }`
 **-As a user i want to click the play button**
 1. in my html:
 
@@ -47,16 +44,37 @@ timer runs  out
 2. in my js:
 
 
-        const playButton = document.querySelector("#play-button")
-    //add an eventListener to this button
-        playButton.addEventLister("click", () => {
+    `const playButton = document.querySelector("#play-button")
 
-        })
+    > add an eventListener to this button
+    playButton.addEventLister("click", () => {
+
+        })`
 **-As a user i want to have a starter page**
 1. in my HTML:
-        <main id="starterPage">
+        `<main id="starterPage">
                 <div class="playButton">
-                </main>
+                </main>`
+
+**-As a user i want to have a gameboard**
+1. in my html:
+      `  <main id="gameBoard" class="hide">
+    > 8 empty divs as place holder for cards
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </main>`
+2. in my css:
+this will be mostly css
+
+3. in my js:
+`const gameBoard = document.querySelector
+("#gameBoard")`
 **-As a user i want to be taken to another page where i can see the game-board**
 1. in my HTML:
        ` <main id="gameBoard" class="hide">
@@ -86,41 +104,20 @@ timer runs  out
         }`
 
 
-**-As a user i want to have a gameboard**
-1. in my html:
-        `<main id="gameBoard" class="hide">
-        //8 empty divs as place holder for cards
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        </main>`
-2. in my css:
-this will be mostly css
 
-3. in my js:
-`const gameBoard = document.querySelector
-("#gameBoard")`
 
 **-As a user i want to able to increase points**
 1. in my html:
 2. in my css:
 3. in my js:
-//creating a class to set the properties of the game
+> creating a class to set the properties of the game
 `class MemoryGame {
     constructor(points){
         this.points = points
     }
-        //creating a method that will add points based
-        //on how many matches are correct
+> creating a method that will add points based on how many matches are correct
     addPoints(){
-        //if the player gets any of the indexes 
-        //inside the winningCombos array, 10 point 
-        //will be added
+> if the player gets any of the indexes inside the winningCombos array,10 points will be added
         if(winningCombos === true){
             this.points = 10
         }
@@ -226,9 +223,8 @@ function flipCard(){
     resetButton.addEventListener = ("click" => {
         alert("Starting game...")
     })
-//make a render function and call it at the end of code
-//call render() after the 
-//eventListener to update the state of the DOM
+> make a render function and call it at the end of code
+> call render() after the eventListener to update the state of the DOM
     const render = () => {
         
     }
@@ -251,16 +247,14 @@ function flipCard(){
     `<div class="p1-score">`
 2. in my js:
    `const p1Score = document.querySelector(".p1-score") 
-// assigning a variable named score to keep
-//track of scores
+> assigning a variable named score to keep track of scores
     let score = 0
-//creating a method that adds points to score 
-//each time a pair is matched correctly
+> creating a method that adds points to score 
+> each time a pair is matched correctly
 correctPair(){
     score = 
 }
-//creating a class to run the properties through 
-//needed for game
+> creating a class to run the properties through needed for game
 class Points {
     constructor()
 }`
@@ -275,13 +269,13 @@ class Points {
     align-items: center
 }`
 3. in my js:
-`//declare a variable a that holds the number we want the timer to start at
-const startingTime = 10
+>declare a variable a that holds the number we want the timer to start at
+`const startingTime = 10
 
-//multiplying by 60 bc we want every second to be counted
+> multiplying by 60 bc we want every second to be counted
 let time = startingTime * 60 
 
-//grabbing the timer element from the HTML
+> grabbing the timer element from the HTML
 const countdown = document.querySelector("#countdown")
 
 
@@ -289,31 +283,25 @@ function updateCountdown() {
     const minutes = Math.floor(time / 60)
     let seconds = time % 60
 
-    //updating the html of countdown to current time
+> updating the html of countdown to current time
     countdown.innerHTML = minutes " : " seconds
 
-    //we're decreasing the time from the starting
-    //time
+> we're decreasing the time from the starting time
     time--
 }`
 
-`//using setInerval() to repeatedly execute
-//a code block
-//creating a function to update the timer as
-//it counts down
-setInterval(function updateCountdown() =>{
+> using setInerval() to repeatedly execute a code block creating a function to update the timer as it counts down
+`setInterval(function updateCountdown() =>{
  const minutes = Math.floor(time / 60)
     let seconds = time % 60
 
-    //updating the html of countdown to current time
+> updating the html of countdown to current time
     countdown.innerHTML = minutes " : " seconds
 
-    //we're decreasing the time from the starting
-    //time
+> we're decreasing the time from the starting time
     time--
     
-    //if the timer runs out, the display if timer 
-    //will show "00:00"
+> if the timer runs out, the display if timer will show "00:00"
     if (minutes === 0 && seconds === 0){
         document.querySelector("#countdown").innerHtml = "00:00"
     }else{
@@ -350,8 +338,7 @@ setInterval(function updateCountdown() =>{
 **-As a user i want to know when the time is out**
 1. in my js:
 `<p id="timesUp"></p>`
-//updating the dom to show a message once the timer
-//has run out("00:00)
+> updating the dom to show a message once the timer has run out("00:00)
 `const timesUp = doument.querySelector("#timesUp")
     if (minutes === 0 && seconds === 0){
         document.querySelector("#timesUp").innerText = "TIMES UP!",
@@ -363,8 +350,7 @@ setInterval(function updateCountdown() =>{
 1. in my html:
 2. in my css:
 3. in my js:
-//create a array of winning combos that will never
-//change(static)
+> create a array of winning combos that will never change(static)
 `static winningCombos =[
     [1,8],
     [2,5],
