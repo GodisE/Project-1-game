@@ -15,15 +15,20 @@ timer runs  out
 
 
 ## MV USER-STORIES
--start the game
-    //initialize function to call other 
-    //created objects that start the game initialize() 
-    //is used to start the app in a web server
+-As a user i want to start the game
+ 
 1. in js:
 
         let gameName
 
-        initialize()
+   //initialize function to call other 
+   //created objects that start the game 
+    
+        initialize() 
+
+
+    //is used to start the app in a web server
+     
     //place new game inside the initialize function to
     //update the DOM with our set classes, functions, etc
     //instanitate the class by using the keyword new 
@@ -31,10 +36,11 @@ timer runs  out
     //runs the constructor function in the class
     //returns the object and updates the DOM with all the 
     //properties and methods from the class
+
         function initialize () {
             gameName = new Parameters()
         }
--click the play button 
+-As a user i want to click the play button 
 1. in my html:
      <button id="play-button">Play game</button>
 2. in my js:
@@ -43,12 +49,12 @@ timer runs  out
         playButton.addEventLister("click", () => {
 
         })
--have a starter page
+-As a user i want to have a starter page
 1. in my HTML:
         <main id="starterPage">
                 <div class="playButton">
                 </main>
--Be taken to another page where i can see the game-board
+- As a user i want to be taken to another page where i can see the game-board
 1. in my HTML:
         <main id="gameBoard" class="hide">
         <div></div>
@@ -77,7 +83,7 @@ timer runs  out
         }
 
 
--have a gameboard
+-As a user i want to have a gameboard
 1. in my html:
         <main id="gameBoard" class="hide">
         //8 empty divs as place holder for cards
@@ -97,7 +103,7 @@ this will be mostly css
 const gameBoard = document.querySelector
 ("#gameBoard")
 
--able to increase points
+-As a user i want to able to increase points
 1. in my html:
 2. in my css:
 3. in my js:
@@ -118,41 +124,49 @@ class MemoryGame {
     }
 }
 
--be able to see my gameboard
+-As a user i want to be able to see my gameboard
+
+
 1. in my HTML:
         <main id="gameBoard" class="hide">
         <div class="card" id="card"></div>
-        <div class ="front">
+        <div class ="front1">
             <h1>front of card</h1>
-        <div class="back">
+        <div class="back1">
             <h1>back of card</h1>
-        <div class ="front">
+        <div class ="front2">
             <h1>front of card</h1>
-        <div class="back">
+        <div class="back2">
             <h1>back of card</h1>
-        <div class ="front">
+        <div class ="front3">
             <h1>front of card</h1>
-        <div class="back">
+        <div class="back3">
             <h1>back of card</h1>
-        <div class ="front">
+        <div class ="front4">
             <h1>front of card</h1>
-        <div class="back">
+        <div class="back4">
             <h1>back of card</h1>
-        <div class ="front">
+        <div class ="front5">
             <h1>front of card</h1>
-        <div class="back">
+        <div class="back5">
             <h1>back of card</h1>
-             <div class ="front">
+             <div class ="front6">
             <h1>front of card</h1>
-        <div class="back">
+        <div class="back6">
             <h1>back of card</h1>
-        <div class ="front">
+        <div class ="front7">
             <h1>front of card</h1>
-        <div class="back">
+        <div class="back7">
+            <h1>back of card</h1>
+         <div class ="front8">
+            <h1>front of card</h1>
+        <div class="back8">
             <h1>back of card</h1>
         </main
 
 2. in my css:
+
+
     #gameBoard {
         background-color: black
         border-radius: 25%
@@ -186,10 +200,23 @@ class MemoryGame {
         transform: rotateY(180deg)
     }
 
+    .flipCard {
+        transform: rotateY(180deg)
+    }
+3. in my js:
+
+const card = document.querySelector("#card")
+
+card.addEventListener("click", flipCard)
+
+function flipCard(){
+    card.classList.toggle("flipCard")
+}
 
 
+-As a user i want to reset the game
 
--reset the game
+
 1. in my html:
     <button id="reset-button">Reset Game</button>
 2. in my js:
@@ -205,7 +232,9 @@ class MemoryGame {
     }
     render(The bulk of the code will exist in here... but i dont understand how yet) 
 
--have a message that tells me i won/lost
+-As a user i want to have a message that tells me i won/lost
+
+
 1. in my html:
     <div id="msgBoard">
 2. in my js
@@ -216,7 +245,7 @@ class MemoryGame {
     You won!/You Lost!
     ")
 
--keep track of scores
+-As a user i want to keep track of scores
 1. in my html:
     <div class="p1-score">
 2. in my js:
@@ -235,7 +264,7 @@ class Points {
     constructor()
 }
 
--see my timer
+-As a user i want to see my timer
 1. in my html:
 <p id="countdown">10:00</p>
 2. in my css:
@@ -296,7 +325,7 @@ setInterval(function updateCountdown() =>{
 
 
 
--know if i won
+-As a user i want to know if i won
 1. in my html:
     <div id="msgBoard">
 2. in my css:
@@ -308,7 +337,7 @@ setInterval(function updateCountdown() =>{
             msgBoard.innerText("YOU WON!")
              
         }
--know if i lost
+-As a user i want to know if i lost
 1. in my html:
     <div id="msgBoard">
 2. in my css:
@@ -321,7 +350,7 @@ setInterval(function updateCountdown() =>{
              
         }
 
--know when the time is out
+-As a user i want to know when the time is out
 1. in my js:
 <p id="timesUp"></p>
 //updating the dom to show a message once the timer
@@ -333,7 +362,7 @@ const timesUp = doument.querySelector("#timesUp")
         document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds
     }
 
--know if i got a match wrong
+-As a user i want to know if i got a match wrong
 1. in my html:
 2. in my css:
 3. in my js:
@@ -354,7 +383,7 @@ winner(){
     }
 }
 
--be able to flip cards
+
 
 ## TIER2 USER STORIES
 -play against another player
