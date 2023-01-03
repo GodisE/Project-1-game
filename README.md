@@ -39,11 +39,11 @@ timer runs  out
         function initialize () {
             gameName = new Parameters()
         }
-**bold text**-As a user i want to click the play button 
+**-As a user i want to click the play button**
 1. in my html:
 
 
-     <button id="play-button">Play game</button>
+     `<button id="play-button">Play game</button>`
 2. in my js:
 
 
@@ -52,12 +52,12 @@ timer runs  out
         playButton.addEventLister("click", () => {
 
         })
--As a user i want to have a starter page
+**-As a user i want to have a starter page**
 1. in my HTML:
         <main id="starterPage">
                 <div class="playButton">
                 </main>
-- As a user i want to be taken to another page where i can see the game-board
+**- As a user i want to be taken to another page where i can see the game-board**
 1. in my HTML:
         <main id="gameBoard" class="hide">
         <div></div>
@@ -71,7 +71,7 @@ timer runs  out
         </main>
 
 2. in my js:
-        const playButton = document.querySelector(".playButton")
+       ` const playButton = document.querySelector(".playButton")
         const gameBoard = document.querySelector(".gameBoard")
 
 
@@ -79,14 +79,14 @@ timer runs  out
         gameBoard.classList.remove(hide)
         starterPage.classList.add(hide)
         })
-
+`
 3. in my css:
         .hide{
             display: none
         }
 
 
--As a user i want to have a gameboard
+**-As a user i want to have a gameboard**
 1. in my html:
         <main id="gameBoard" class="hide">
         //8 empty divs as place holder for cards
@@ -103,15 +103,15 @@ timer runs  out
 this will be mostly css
 
 3. in my js:
-const gameBoard = document.querySelector
-("#gameBoard")
+`const gameBoard = document.querySelector
+("#gameBoard")`
 
--As a user i want to able to increase points
+**-As a user i want to able to increase points**
 1. in my html:
 2. in my css:
 3. in my js:
 //creating a class to set the properties of the game
-class MemoryGame {
+`class MemoryGame {
     constructor(points){
         this.points = points
     }
@@ -125,9 +125,9 @@ class MemoryGame {
             this.points = 10
         }
     }
-}
+}`
 
--As a user i want to be able to see my gameboard
+**-As a user i want to be able to see my gameboard**
 
 
 1. in my HTML:
@@ -208,22 +208,22 @@ class MemoryGame {
     }
 3. in my js:
 
-const card = document.querySelector("#card")
+`const card = document.querySelector("#card")
 
 card.addEventListener("click", flipCard)
 
 function flipCard(){
     card.classList.toggle("flipCard")
 }
+`
 
-
--As a user i want to reset the game
+**-As a user i want to reset the game**
 
 
 1. in my html:
     <button id="reset-button">Reset Game</button>
 2. in my js:
-    const resetButton = document.querySelector("#reset-button")
+   ` const resetButton = document.querySelector("#reset-button")
     resetButton.addEventListener = ("click" => {
         alert("Starting game...")
     })
@@ -234,8 +234,8 @@ function flipCard(){
         
     }
     render(The bulk of the code will exist in here... but i dont understand how yet) 
-
--As a user i want to have a message that tells me i won/lost
+`
+**-As a user i want to have a message that tells me i won/lost**
 
 
 1. in my html:
@@ -248,7 +248,7 @@ function flipCard(){
     You won!/You Lost!
     ")
 
--As a user i want to keep track of scores
+**-As a user i want to keep track of scores**
 1. in my html:
     <div class="p1-score">
 2. in my js:
@@ -267,7 +267,7 @@ class Points {
     constructor()
 }
 
--As a user i want to see my timer
+**-As a user i want to see my timer**
 1. in my html:
 <p id="countdown">10:00</p>
 2. in my css:
@@ -281,13 +281,13 @@ p {
 const startingTime = 10
 
 //multiplying by 60 bc we want every second to be counted
-let time = startingTime * 60 
+`let time = startingTime * 60 `
 
 //grabbing the timer element from the HTML
-const countdown = document.querySelector("#countdown")
+`const countdown = document.querySelector("#countdown")`
 
 
-function updateCountdown() {
+`function updateCountdown() {
     const minutes = Math.floor(time / 60)
     let seconds = time % 60
 
@@ -298,11 +298,10 @@ function updateCountdown() {
     //time
     time--
 }
-
+`
 //using setInterval() to repeat updateCountdown until the timer runs out
 
-setInterval(updateCountdown, 1000)
-//using setInerval() to repeatedly execute
+`//using setInerval() to repeatedly execute
 //a code block
 //creating a function to update the timer as
 //it counts down
@@ -325,53 +324,53 @@ setInterval(function updateCountdown() =>{
         document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds
     }
 })
+`
 
 
-
--As a user i want to know if i won
+**-As a user i want to know if i won**
 1. in my html:
     <div id="msgBoard">
 2. in my css:
 
 3. in my js:
-    const msgBoard = document.querySelector("#msgBoard")
+   ` const msgBoard = document.querySelector("#msgBoard")
         
         msgBoard.addElement("p"){
             msgBoard.innerText("YOU WON!")
              
-        }
--As a user i want to know if i lost
+        }`
+**-As a user i want to know if i lost**
 1. in my html:
     <div id="msgBoard">
 2. in my css:
 
 3. in my js:
-    const msgBoard = document.querySelector("#msgBoard")
+   ` const msgBoard = document.querySelector("#msgBoard")
         
         msgBoard.addElement("p"){
             msgBoard.innerText("YOU LOST! :(")
              
-        }
+        }`
 
--As a user i want to know when the time is out
+**-As a user i want to know when the time is out**
 1. in my js:
 <p id="timesUp"></p>
 //updating the dom to show a message once the timer
 //has run out("00:00)
-const timesUp = doument.querySelector("#timesUp")
+`const timesUp = doument.querySelector("#timesUp")
     if (minutes === 0 && seconds === 0){
         document.querySelector("#timesUp").innerText = "TIMES UP!",
     }else{
         document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds
-    }
+    }`
 
--As a user i want to know if i got a match wrong
+**-As a user i want to know if i got a match wrong**
 1. in my html:
 2. in my css:
 3. in my js:
 //create a array of winning combos that will never
 //change(static)
-static winningCombos =[
+`static winningCombos =[
     [1,8],
     [2,5],
     [3,7],
@@ -384,7 +383,7 @@ winner(){
     }else{
         alert ("incorrect!")
     }
-}
+}`
 
 
 
