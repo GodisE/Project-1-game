@@ -1,162 +1,363 @@
-<img src="https://i.imgur.com/QgojyYY.png" width="400">
+# Concentration game
 
-# Project 1<br>Browser-based Game
-
-## Overview
-
-Your first SEI project will start out with something fun - **a game!**
-
-Thanks to the amount of logic there is in a game, there's no better app than a game to teach you how to **think like a programmer**!
-
-Everyone will get a chance to **be creative**, and work through some really **tough programming challenges**.  You got your feet wet with our game code-alongs during class - now it's time to pick a game and go for it.
-
-**You will be working individually for this project**. However, your instructors and instructor assistants will be available for support via the support channel in Slack.  Please be sure to provide the details of the issue you are having - screenshots and relevant code are very helpful.
-
-As a reminder, GA has a zero plagiarism policy - your project's code **must be substantially yours**. **Do not copy code from similar projects, tutorials, or other sources**.  However, using  lines of code from  StackOverflow to accomplish general techniques/algorithms is okay - an example would be using StackOverflow as a source for code that replaces a character at a certain position in a string. 
-
----
-
-## Planning & Presentation Requirements
-
-### Planning - Due ____________:
-
-- You will share:
-
-	☐ Your choice of game.
-
-	☐ A wireframe of your "main" game screen.
-
-	☐ Pseudocode for the overall game play.
-
-### Presentation - ____________:
-
-You will have a maximum of 10 minutes to present your project following these guidelines:
+## WHAT THE GAME WILL BE ABOUT
+-A memory game that will require players to match cards of the same picture
+-The player will have a limited amount of time to 
+match 6 pairs of pictures
+-Player will also lose the game if the timer runs out
 
 
-1. **Introduce the Project:**
+## HOW TO PLAY
+1. Find the 3 pairs of matching pictures before the
+timer runs  out
+2. click on each image and remember where it is, try to find a match to that picture
+3.  This game is all about memory! So try and remember where the images are placed
 
-	☐ Intro your game by paraphrasing the README.
-	
-2. **Demonstrate the Project:**
 
-	☐ Launch the game by clicking the link in the README.
-	
-	☐ Play the game! If necessary, manipulate the values of variables in the console to ensure a quick win or loss.
-	
-3. **Show/discuss your code:**
+## MV USER-STORIES
+-start the game
+    //initialize function to call other 
+    //created objects that start the game initialize() 
+    //is used to start the app in a web server
+1. in js:
+        let gameName
 
-	☐ Briefly show the HTML & CSS. 
-	
-	☐ Show the JavaScript and discuss your favorite function.
+        initialize()
+    //place new game inside the initialize function to
+    //update the DOM with our set classes, functions, etc
+    //instanitate the class by using the keyword new 
+    //to create a new object of our class 
+    //runs the constructor function in the class
+    //returns the object and updates the DOM with all the 
+    //properties and methods from the class
+        function initialize () {
+            gameName = new Parameters()
+        }
+-click the play button 
+1. in my html:
+     <button id="play-button">Play game</button>
+2. in my js:
+        const playButton = document.querySelector("#play-button")
+    //add an eventListener to this button
+        playButton.addEventLister("click", () => {
 
-4. **Share the experience:**
+        })
+-have a starter page
+1. in my HTML:
+        <main id="starterPage">
+                <div class="playButton">
+                </main>
+-Be taken to another page where i can see the game-board
+1. in my HTML:
+        <main id="gameBoard" class="hide">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </main>
 
-	☐ What was your biggest challenge?
-	
-	☐ What are your key learnings/takeaways?
-	
-5. **Q & A + Feedback**
+2. in my js:
+        const playButton = document.querySelector(".playButton")
+        const gameBoard = document.querySelector(".gameBoard")
 
----
 
-## Technical Requirements
+        playButton.addEventListener("click", () => {
+        gameBoard.classList.remove(hide)
+        starterPage.classList.add(hide)
+        })
 
-### Your App Must:
+3. in my css:
+        .hide{
+            display: none
+        }
 
-☐ **Render a game in the browser**.
 
-☐ **Include win/loss logic and render win/loss messages in HTML.** Popup alerts using the `alert()` method are okay during development, but not production.
+-have a gameboard
+1. in my html:
+        <main id="gameBoard" class="hide">
+        //8 empty divs as place holder for cards
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        </main>
+2. in my css:
+this will be mostly css
 
-☐ Include separate HTML, CSS & JavaScript files.
+3. in my js:
+const gameBoard = document.querySelector
+("#gameBoard")
 
-☐ Use vanilla JavaScript, not jQuery.
+-able to increase points
+1. in my html:
+2. in my css:
+3. in my js:
+//creating a class to set the properties of the game
+class MemoryGame {
+    constructor(points){
+        this.points = points
+    }
+        //creating a method that will add points based
+        //on how many matches are correct
+    addPoints(){
+        //if the player gets any of the indexes 
+        //inside the winningCombos array, 10 point 
+        //will be added
+        if(winningCombos === true){
+            this.points = 10
+        }
+    }
+}
 
-☐ Have **properly indented HTML, CSS & JavaScript**. In addition, vertical whitespace needs to be consistent.
+-be able to see my gameboard
+1. in my HTML:
+        <main id="gameBoard" class="hide">
+        <div class="card" id="card"></div>
+        <div class ="front">
+            <h1>front of card</h1>
+        <div class="back">
+            <h1>back of card</h1>
+        <div class ="front">
+            <h1>front of card</h1>
+        <div class="back">
+            <h1>back of card</h1>
+        <div class ="front">
+            <h1>front of card</h1>
+        <div class="back">
+            <h1>back of card</h1>
+        <div class ="front">
+            <h1>front of card</h1>
+        <div class="back">
+            <h1>back of card</h1>
+        <div class ="front">
+            <h1>front of card</h1>
+        <div class="back">
+            <h1>back of card</h1>
+             <div class ="front">
+            <h1>front of card</h1>
+        <div class="back">
+            <h1>back of card</h1>
+        <div class ="front">
+            <h1>front of card</h1>
+        <div class="back">
+            <h1>back of card</h1>
+        </main
 
-☐ No remaining **unused and/or commented out code** (code that will never be called) .
+2. in my css:
+    #gameBoard {
+        background-color: black
+        border-radius: 25%
+        height: 100px
+        width: 50px
+        justify-content: space-around
+        display:flex
+    }
+    .card{
+        position: relative
+        width: 100%
+        height: 100%
+        transform-style: preserve-3d
+    }
+    .front {
+        backface-visibility: hidden
+        color: black
+        justify-content: center
+        height: 100%
+        width: 100%
+        background: orange
 
-☐ Have functions and variables that are named sensibly. Remember, functions are typically named as verbs and variables (data) named as nouns.
+    }
+    .back {
+        backface-visibility: hidden
+        color: white
+        justify-content: center
+        height: 100%
+        width: 100%
+        background: red
+        transform: rotateY(180deg)
+    }
 
-☐ **Be coded in a consistent** manner. For example, choose between your preference for function declarations vs. function expressions.
 
-☐ **Be deployed online** using GitHub Pages so that the rest of the world can play your game!
 
----
 
-## Necessary Deliverables
+-reset the game
+1. in my html:
+    <button id="reset-button">Reset Game</button>
+2. in my js:
+    const resetButton = document.querySelector("#reset-button")
+    resetButton.addEventListener = ("click" => {
+        alert("Starting game...")
+    })
+//make a render function and call it at the end of code
+//call render() after the 
+//eventListener to update the state of the DOM
+    const render = () => {
+        
+    }
+    render(The bulk of the code will exist in here... but i dont understand how yet) 
 
-☐ The code for **a working game that meets or exceeds the above technical requirements, built by you, and hosted on GitHub Pages** (covered next week).
+-have a message that tells me i won/lost
+1. in my html:
+    <div id="msgBoard">
+2. in my js
+    const msgBoard = document.querySelector("#msgBoard")
 
-- **A ``README.md`` file** with these sections:
+    msgBoard.addElement("h1")
+    h1.innerText = ("
+    You won!/You Lost!
+    ")
 
-  ☐ **\<Your game's title\>**: A description of your game.  Background info of the game is a nice touch.
-  
-  ☐ **Screenshot(s):** Images of your actual game.
-  
-  ☐ **Technologies Used**: List of the technologies used, e.g., JavaScript, HTML, CSS...
-  
-  ☐ **Getting Started**: In this section include the link to your deployed game and any instructions you deem important. 
-  
-  ☐ **Next Steps**: Planned future enhancements (icebox items).
-  
-  > Note: Don't underestimate the value of a well crafted `README.md`. The `README.md` introduces your project to prospective employers and forms their first impression of your work!
+-keep track of scores
+1. in my html:
+    <div class="p1-score">
+2. in my js:
+   const p1Score = document.querySelector(".p1-score") 
+// assigning a variable named score to keep
+//track of scores
+    let score = 0
+//creating a method that adds points to score 
+//each time a pair is matched correctly
+correctPair(){
+    score = 
+}
+//creating a class to run the properties through 
+//needed for game
+class Points {
+    constructor()
+}
 
-☐ **Frequent commits (at least 1 every day) dating back to the very beginning of the project**. Never delete you repo to "start over".  Commit messages should be in the present tense, e.g., "Style game board" instead of "Styled game board". **Be sure to create the repo on your personal GitHub account and ensure that it is "public".** 
+-see my timer
+1. in my html:
+<p id="countdown">10:00</p>
+2. in my css:
+p {
+    background-color: white;
+    display: inline-flex
+    align-items: center
+}
+3. in my js:
+//declare a variable a that holds the number we want the timer to start at
+const startingTime = 10
 
----
+//multiplying by 60 bc we want every second to be counted
+let time = startingTime * 60 
 
-## Choose From the Following Games
+//grabbing the timer element from the HTML
+const countdown = document.querySelector("#countdown")
 
-> Note: Games are listed in approximate order of increasing difficulty.
 
-1. **Spaceman**
-    - A good icebox feature (optional feature) is to allow the player to choose from categories of words.
-1. **Concentration (Memory Game)**
-    - Use "cards" or other theme
-    - Will need to display "wrong" guess until a timer expires or until the next click.
-    - Must lose after a certain amount of time or after X number of bad guesses.
-1. **Simon**
-    - Requires audio
-1. **Mastermind** (Guess the Code)
-1. **Minesweeper**
-    - Must implement "flood" feature
-1. **Blackjack**
-    - Must implement wagering feature
-    - Do not have to implement splitting hands
-1. **Slot Machine**
-    - Must implement wagering feature
-1. **Checkers**
-    - No AI required - player vs. player is fine
-1. **Mancala**
-    - Implementing "capturing" is not required
-1. **Roulette**
-    - Must implement wagering feature
-1. **Video Poker**
-    - Must implement wagering feature
-1. **Craps**
-    - Must implement wagering feature
-1. **Solitaire**
-1. **Battleship**
-    - Requires some AI to implement the computer opponent
+function updateCountdown() {
+    const minutes = Math.floor(time / 60)
+    let seconds = time % 60
 
-**Only the above games are approved.  Any deviation, which is extremely discouraged, must receive approval from your instructor before starting your planning (wireframes & pseudocode)!**
+    //updating the html of countdown to current time
+    countdown.innerHTML = minutes " : " seconds
 
-> IMPORTANT:  Because it's important to demonstrate your ability to perform DOM manipulation using JavaScript, all games should be DOM-based, not canvas-based.
+    //we're decreasing the time from the starting
+    //time
+    time--
+}
 
----
+//using setInterval() to repeat updateCountdown until the timer runs out
 
-## Suggestions
+setInterval(updateCountdown, 1000)
+//using setInerval() to repeatedly execute
+//a code block
+//creating a function to update the timer as
+//it counts down
+setInterval(function updateCountdown() =>{
+ const minutes = Math.floor(time / 60)
+    let seconds = time % 60
 
-- **The BEST advice is to follow the guidelines and principles in the** [Guide to Building a Browser App](./guide-to-building-a-browser-game.md). The guide will give you a step-by-step process to get you started and its MVC design pattern will result in clearer, more concise code that can scale functionality more easily.
-- **Theme your game** to give it a more personal touch and make it more unique!
-- **Use your Development Tools** (Chrome DevTools rock!) to debug and solve issues.
-- Keep it simple. Minimum Viable Product (MVP) functionality that looks great is better than extra functionality added to a game without polish.
-- **Consult documentation and other resources** to better understand methods, etc.
-- Write **DRY (Don't Repeat Yourself)** code. Check for repeating code and refactor into functions that accept arguments.
+    //updating the html of countdown to current time
+    countdown.innerHTML = minutes " : " seconds
 
----
+    //we're decreasing the time from the starting
+    //time
+    time--
+    
+    //if the timer runs out, the display if timer 
+    //will show "00:00"
+    if (minutes === 0 && seconds === 0){
+        document.querySelector("#countdown").innerHtml = "00:00"
+    }else{
+        document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds
+    }
+})
 
-## Project Feedback + Evaluation
 
-- If your instructors determine that your project does not meet the above requirements (denoted using checkboxes), you may request to address the deficiencies identified. However, be aware that **there is only a single opportunity to resubmit a project or project assessment during the course**.
-- If there is a specific section of code that you would like an instructor to provide additional feedback, please ask!
+
+-know if i won
+1. in my html:
+    <div id="msgBoard">
+2. in my css:
+
+3. in my js:
+    const msgBoard = document.querySelector("#msgBoard")
+        
+        msgBoard.addElement("p"){
+            msgBoard.innerText("YOU WON!")
+             
+        }
+-know if i lost
+1. in my html:
+    <div id="msgBoard">
+2. in my css:
+
+3. in my js:
+    const msgBoard = document.querySelector("#msgBoard")
+        
+        msgBoard.addElement("p"){
+            msgBoard.innerText("YOU LOST! :(")
+             
+        }
+
+-know when the time is out
+1. in my js:
+<p id="timesUp"></p>
+//updating the dom to show a message once the timer
+//has run out("00:00)
+const timesUp = doument.querySelector("#timesUp")
+    if (minutes === 0 && seconds === 0){
+        document.querySelector("#timesUp").innerText = "TIMES UP!",
+    }else{
+        document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds
+    }
+
+-know if i got a match wrong
+1. in my html:
+2. in my css:
+3. in my js:
+//create a array of winning combos that will never
+//change(static)
+static winningCombos =[
+    [1,8],
+    [2,5],
+    [3,7],
+    [4,6],
+]
+
+winner(){
+    if (winningCombos === [0] && [1] && [2] && [3]){
+        alert ("correct!")
+    }else{
+        alert ("incorrect!")
+    }
+}
+
+-be able to flip cards
+
+## TIER2 USER STORIES
+-play against another player
+-have music
+-multiple players
+## TIER3 USER STORIES
+-join an online game
