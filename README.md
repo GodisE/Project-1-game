@@ -39,7 +39,7 @@ timer runs  out
         function initialize () {
             gameName = new Parameters()
         }
--As a user i want to click the play button 
+**bold text**-As a user i want to click the play button 
 1. in my html:
 
 
