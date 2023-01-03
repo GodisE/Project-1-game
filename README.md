@@ -39,15 +39,14 @@ timer runs  out
 **-As a user i want to click the play button**
 1. in my html:
 
-
      `<button id="play-button">Play game</button>`
 2. in my js:
 
 
-    `const playButton = document.querySelector("#play-button")
+    `const playButton = document.querySelector("#play-button")`
 
     > add an eventListener to this button
-    playButton.addEventLister("click", () => {
+    `playButton.addEventLister("click", () => {
 
         })`
 **-As a user i want to have a starter page**
@@ -59,7 +58,7 @@ timer runs  out
 **-As a user i want to have a gameboard**
 1. in my html:
       `  <main id="gameBoard" class="hide">
-    > 8 empty divs as place holder for cards
+    // 8 empty divs as place holder for cards
         <div></div>
         <div></div>
         <div></div>
@@ -114,11 +113,11 @@ this will be mostly css
 `class MemoryGame {
     constructor(points){
         this.points = points
-    }
+    }`
 > creating a method that will add points based on how many matches are correct
-    addPoints(){
+    `addPoints(){`
 > if the player gets any of the indexes inside the winningCombos array,10 points will be added
-        if(winningCombos === true){
+        `if(winningCombos === true){
             this.points = 10
         }
     }
@@ -128,41 +127,41 @@ this will be mostly css
 
 
 1. in my HTML:
-        `<main id="gameBoard" class="hide">
-        <div class="card" id="card"></div>
-        <div class ="front1">
-            <h1>front of card</h1>
-        <div class="back1">
-            <h1>back of card</h1>
-        <div class ="front2">
-            <h1>front of card</h1>
-        <div class="back2">
-            <h1>back of card</h1>
-        <div class ="front3">
-            <h1>front of card</h1>
-        <div class="back3">
-            <h1>back of card</h1>
-        <div class ="front4">
-            <h1>front of card</h1>
-        <div class="back4">
-            <h1>back of card</h1>
-        <div class ="front5">
-            <h1>front of card</h1>
-        <div class="back5">
-            <h1>back of card</h1>
-             <div class ="front6">
-            <h1>front of card</h1>
-        <div class="back6">
-            <h1>back of card</h1>
-        <div class ="front7">
-            <h1>front of card</h1>
-        <div class="back7">
-            <h1>back of card</h1>
-         <div class ="front8">
-            <h1>front of card</h1>
-        <div class="back8">
-            <h1>back of card</h1>
-        </main`
+        `<main id="gameBoard" class="hide">`
+        `<div class="card" id="card"></div>`
+        `<div class ="front1">`
+            `<h1>front of card</h1>`
+        `<div class="back1">`
+            `<h1>back of card</h1>`
+        `<div class ="front2">`
+            `<h1>front of card</h1>`
+        `<div class="back2">`
+            `<h1>back of card</h1>`
+        `<div class ="front3">`
+            `<h1>front of card</h1>`
+        `<div class="back3">`
+            `<h1>back of card</h1>`
+        `<div class ="front4">`
+            `<h1>front of card</h1>`
+        `<div class="back4">`
+            `<h1>back of card</h1>`
+        `<div class ="front5">`
+            `<h1>front of card</h1>`
+        `<div class="back5">`
+            `<h1>back of card</h1>`
+             `<div class ="front6">`
+            `<h1>front of card</h1>`
+        `<div class="back6">`
+            `<h1>back of card</h1>`
+        `<div class ="front7">`
+            `<h1>front of card</h1>`
+        `<div class="back7">`
+            `<h1>back of card</h1>`
+         `<div class ="front8">`
+            `<h1>front of card</h1>`
+        `<div class="back8">`
+            `<h1>back of card</h1>`
+        `</main>`
 
 2. in my css:
 
@@ -174,23 +173,22 @@ this will be mostly css
         width: 50px
         justify-content: space-around
         display:flex
-    }
-    .card{
+    }`
+    `.card{
         position: relative
         width: 100%
         height: 100%
         transform-style: preserve-3d
-    }
-    .front {
+    }`
+    `.front {
         backface-visibility: hidden
         color: black
         justify-content: center
         height: 100%
         width: 100%
         background: orange
-
-    }
-    .back {
+    }`
+    `.back {
         backface-visibility: hidden
         color: white
         justify-content: center
@@ -198,18 +196,18 @@ this will be mostly css
         width: 100%
         background: red
         transform: rotateY(180deg)
-    }
+    }`
 
-    .flipCard {
+    `.flipCard {
         transform: rotateY(180deg)
     }`
 3. in my js:
 
-`const card = document.querySelector("#card")
+`const card = document.querySelector("#card")`
 
-card.addEventListener("click", flipCard)
+`card.addEventListener("click", flipCard)`
 
-function flipCard(){
+`function flipCard(){
     card.classList.toggle("flipCard")
 }`
 
@@ -219,44 +217,44 @@ function flipCard(){
 1. in my html:
     `<button id="reset-button">Reset Game</button>`
 2. in my js:
-   ` const resetButton = document.querySelector("#reset-button")
-    resetButton.addEventListener = ("click" => {
-        alert("Starting game...")
-    })
+   `const resetButton = document.querySelector("#reset-button")`
+    `resetButton.addEventListener = ("click" => {
+        alert("Starting game...")`
+    })`
 > make a render function and call it at the end of code
 > call render() after the eventListener to update the state of the DOM
-    const render = () => {
-        
-    }
-    render(The bulk of the code will exist in here... but i dont understand how yet)`
+    `const render = () => {}`
+
+>The bulk of the code will exist in here... but i dont understand how yet
+    `render()`
+
 **-As a user i want to have a message that tells me i won/lost**
 
 
 1. in my html:
     `<div id="msgBoard">`
 2. in my js
-    `const msgBoard = document.querySelector("#msgBoard")
+    `const msgBoard = document.querySelector("#msgBoard")`
 
-    msgBoard.addElement("h1")
+    `msgBoard.addElement("h1")
     h1.innerText = ("
-    You won!/You Lost!
-    ")`
+    You won!/You Lost!")`
 
 **-As a user i want to keep track of scores**
 1. in my html:
     `<div class="p1-score">`
 2. in my js:
-   `const p1Score = document.querySelector(".p1-score") 
+   `const p1Score = document.querySelector(".p1-score")` 
 > assigning a variable named score to keep track of scores
-    let score = 0
+    `let score = 0`
 > creating a method that adds points to score 
 > each time a pair is matched correctly
-correctPair(){
-    score = 
-}
+    `correctPair(){
+        score = 
+}`
 > creating a class to run the properties through needed for game
-class Points {
-    constructor()
+    `class Points {
+        constructor()
 }`
 
 **-As a user i want to see my timer**
@@ -270,39 +268,39 @@ class Points {
 }`
 3. in my js:
 >declare a variable a that holds the number we want the timer to start at
-`const startingTime = 10
+`const startingTime = 10`
 
 > multiplying by 60 bc we want every second to be counted
-let time = startingTime * 60 
+`let time = startingTime * 60 `
 
 > grabbing the timer element from the HTML
-const countdown = document.querySelector("#countdown")
+`const countdown = document.querySelector("#countdown")`
 
 
-function updateCountdown() {
+`function updateCountdown() {
     const minutes = Math.floor(time / 60)
-    let seconds = time % 60
+    let seconds = time % 60`
 
 > updating the html of countdown to current time
-    countdown.innerHTML = minutes " : " seconds
+    `countdown.innerHTML = minutes " : " seconds`
 
 > we're decreasing the time from the starting time
-    time--
+    `time--
 }`
 
 > using setInerval() to repeatedly execute a code block creating a function to update the timer as it counts down
 `setInterval(function updateCountdown() =>{
  const minutes = Math.floor(time / 60)
-    let seconds = time % 60
+    let seconds = time % 60`
 
 > updating the html of countdown to current time
-    countdown.innerHTML = minutes " : " seconds
+    `countdown.innerHTML = minutes " : " seconds`
 
 > we're decreasing the time from the starting time
-    time--
+    `time--`
     
 > if the timer runs out, the display if timer will show "00:00"
-    if (minutes === 0 && seconds === 0){
+    `if (minutes === 0 && seconds === 0){
         document.querySelector("#countdown").innerHtml = "00:00"
     }else{
         document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds
@@ -316,9 +314,9 @@ function updateCountdown() {
 2. in my css:
 
 3. in my js:
-   ` const msgBoard = document.querySelector("#msgBoard")
+   `const msgBoard = document.querySelector("#msgBoard")`
         
-        msgBoard.addElement("p"){
+        `msgBoard.addElement("p"){
             msgBoard.innerText("YOU WON!")
              
         }`
@@ -328,18 +326,19 @@ function updateCountdown() {
 2. in my css:
 
 3. in my js:
-   ` const msgBoard = document.querySelector("#msgBoard")
+   `const msgBoard = document.querySelector("#msgBoard")`
         
-        msgBoard.addElement("p"){
+        `msgBoard.addElement("p"){
             msgBoard.innerText("YOU LOST! :(")
              
         }`
 
 **-As a user i want to know when the time is out**
-1. in my js:
+1. in my html:
 `<p id="timesUp"></p>`
+2. in my js:
 > updating the dom to show a message once the timer has run out("00:00)
-`const timesUp = doument.querySelector("#timesUp")
+    `const timesUp = doument.querySelector("#timesUp")
     if (minutes === 0 && seconds === 0){
         document.querySelector("#timesUp").innerText = "TIMES UP!",
     }else{
@@ -351,15 +350,15 @@ function updateCountdown() {
 2. in my css:
 3. in my js:
 > create a array of winning combos that will never change(static)
-`static winningCombos =[
-    [1,8],
-    [2,5],
-    [3,7],
-    [4,6],
-]
+    `static winningCombos =[
+        [1,8],
+        [2,5],
+        [3,7],
+        [4,6],
+    ]`
 
-winner(){
-    if (winningCombos === [0] && [1] && [2] && [3]){
+    `winner(){
+        if (winningCombos === [0] && [1] && [2] && [3]){
         alert ("correct!")
     }else{
         alert ("incorrect!")
