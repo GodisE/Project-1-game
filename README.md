@@ -57,7 +57,7 @@ timer runs  out
         <main id="starterPage">
                 <div class="playButton">
                 </main>
-**- As a user i want to be taken to another page where i can see the game-board**
+**-As a user i want to be taken to another page where i can see the game-board**
 1. in my HTML:
         <main id="gameBoard" class="hide">
         <div></div>
