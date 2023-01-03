@@ -29,8 +29,7 @@ timer runs  out
 
     //is used to start the app in a web server
      
-    //place new game inside the initialize function to
-    //update the DOM with our set classes, functions, etc
+    //place new game inside the initialize function to update the DOM with our set classes, functions, etc
     //instanitate the class by using the keyword new 
     //to create a new object of our class 
     //runs the constructor function in the class
@@ -42,8 +41,12 @@ timer runs  out
         }
 -As a user i want to click the play button 
 1. in my html:
+
+
      <button id="play-button">Play game</button>
 2. in my js:
+
+
         const playButton = document.querySelector("#play-button")
     //add an eventListener to this button
         playButton.addEventLister("click", () => {
