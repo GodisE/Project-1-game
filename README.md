@@ -20,6 +20,7 @@ timer runs  out
     //created objects that start the game initialize() 
     //is used to start the app in a web server
 1. in js:
+
         let gameName
 
         initialize()
