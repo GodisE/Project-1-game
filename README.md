@@ -59,7 +59,7 @@ timer runs  out
                 </main>
 **-As a user i want to be taken to another page where i can see the game-board**
 1. in my HTML:
-        <main id="gameBoard" class="hide">
+       ` <main id="gameBoard" class="hide">
         <div></div>
         <div></div>
         <div></div>
@@ -68,7 +68,7 @@ timer runs  out
         <div></div>
         <div></div>
         <div></div>
-        </main>
+        </main>`
 
 2. in my js:
        ` const playButton = document.querySelector(".playButton")
@@ -78,17 +78,17 @@ timer runs  out
         playButton.addEventListener("click", () => {
         gameBoard.classList.remove(hide)
         starterPage.classList.add(hide)
-        })
-`
+        })`
+
 3. in my css:
-        .hide{
+        `.hide{
             display: none
-        }
+        }`
 
 
 **-As a user i want to have a gameboard**
 1. in my html:
-        <main id="gameBoard" class="hide">
+        `<main id="gameBoard" class="hide">
         //8 empty divs as place holder for cards
         <div></div>
         <div></div>
@@ -98,7 +98,7 @@ timer runs  out
         <div></div>
         <div></div>
         <div></div>
-        </main>
+        </main>`
 2. in my css:
 this will be mostly css
 
@@ -131,7 +131,7 @@ this will be mostly css
 
 
 1. in my HTML:
-        <main id="gameBoard" class="hide">
+        `<main id="gameBoard" class="hide">
         <div class="card" id="card"></div>
         <div class ="front1">
             <h1>front of card</h1>
@@ -165,12 +165,12 @@ this will be mostly css
             <h1>front of card</h1>
         <div class="back8">
             <h1>back of card</h1>
-        </main
+        </main`
 
 2. in my css:
 
 
-    #gameBoard {
+    `#gameBoard {
         background-color: black
         border-radius: 25%
         height: 100px
@@ -205,7 +205,7 @@ this will be mostly css
 
     .flipCard {
         transform: rotateY(180deg)
-    }
+    }`
 3. in my js:
 
 `const card = document.querySelector("#card")
@@ -214,14 +214,13 @@ card.addEventListener("click", flipCard)
 
 function flipCard(){
     card.classList.toggle("flipCard")
-}
-`
+}`
 
 **-As a user i want to reset the game**
 
 
 1. in my html:
-    <button id="reset-button">Reset Game</button>
+    `<button id="reset-button">Reset Game</button>`
 2. in my js:
    ` const resetButton = document.querySelector("#reset-button")
     resetButton.addEventListener = ("click" => {
@@ -233,26 +232,25 @@ function flipCard(){
     const render = () => {
         
     }
-    render(The bulk of the code will exist in here... but i dont understand how yet) 
-`
+    render(The bulk of the code will exist in here... but i dont understand how yet)`
 **-As a user i want to have a message that tells me i won/lost**
 
 
 1. in my html:
-    <div id="msgBoard">
+    `<div id="msgBoard">`
 2. in my js
-    const msgBoard = document.querySelector("#msgBoard")
+    `const msgBoard = document.querySelector("#msgBoard")
 
     msgBoard.addElement("h1")
     h1.innerText = ("
     You won!/You Lost!
-    ")
+    ")`
 
 **-As a user i want to keep track of scores**
 1. in my html:
-    <div class="p1-score">
+    `<div class="p1-score">`
 2. in my js:
-   const p1Score = document.querySelector(".p1-score") 
+   `const p1Score = document.querySelector(".p1-score") 
 // assigning a variable named score to keep
 //track of scores
     let score = 0
@@ -265,29 +263,29 @@ correctPair(){
 //needed for game
 class Points {
     constructor()
-}
+}`
 
 **-As a user i want to see my timer**
 1. in my html:
-<p id="countdown">10:00</p>
+`<p id="countdown">10:00</p>`
 2. in my css:
-p {
+`p {
     background-color: white;
     display: inline-flex
     align-items: center
-}
+}`
 3. in my js:
-//declare a variable a that holds the number we want the timer to start at
+`//declare a variable a that holds the number we want the timer to start at
 const startingTime = 10
 
 //multiplying by 60 bc we want every second to be counted
-`let time = startingTime * 60 `
+let time = startingTime * 60 
 
 //grabbing the timer element from the HTML
-`const countdown = document.querySelector("#countdown")`
+const countdown = document.querySelector("#countdown")
 
 
-`function updateCountdown() {
+function updateCountdown() {
     const minutes = Math.floor(time / 60)
     let seconds = time % 60
 
@@ -297,9 +295,7 @@ const startingTime = 10
     //we're decreasing the time from the starting
     //time
     time--
-}
-`
-//using setInterval() to repeat updateCountdown until the timer runs out
+}`
 
 `//using setInerval() to repeatedly execute
 //a code block
@@ -323,13 +319,12 @@ setInterval(function updateCountdown() =>{
     }else{
         document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds
     }
-})
-`
+})`
 
 
 **-As a user i want to know if i won**
 1. in my html:
-    <div id="msgBoard">
+    `<div id="msgBoard">`
 2. in my css:
 
 3. in my js:
@@ -341,7 +336,7 @@ setInterval(function updateCountdown() =>{
         }`
 **-As a user i want to know if i lost**
 1. in my html:
-    <div id="msgBoard">
+    `<div id="msgBoard">`
 2. in my css:
 
 3. in my js:
@@ -354,7 +349,7 @@ setInterval(function updateCountdown() =>{
 
 **-As a user i want to know when the time is out**
 1. in my js:
-<p id="timesUp"></p>
+`<p id="timesUp"></p>`
 //updating the dom to show a message once the timer
 //has run out("00:00)
 `const timesUp = doument.querySelector("#timesUp")
