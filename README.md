@@ -14,6 +14,8 @@ match 6 pairs of pictures
 timer runs  out
 2. click on each image and remember where it is, try to find a match to that picture
 3.  This game is all about memory! So try and remember where the images are placed
+4. There are 8 cards, meaning there are 4 pairs of
+pictures. Find them all before the timer runs out to win the game!
 
 ## WIREFRAMES
 ![alt text](WireframeStartingPage.png.png)
