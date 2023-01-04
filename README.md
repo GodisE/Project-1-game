@@ -72,7 +72,7 @@ timer runs  out
         `<div></div>`
         `<div></div>`
         `<div></div>`
-    </main>`
+    `</main>`
     > 8 empty divs as place holder for cards
 
 2. in my css:
