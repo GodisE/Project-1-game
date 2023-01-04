@@ -15,6 +15,9 @@ timer runs  out
 2. click on each image and remember where it is, try to find a match to that picture
 3.  This game is all about memory! So try and remember where the images are placed
 
+## WIREFRAMES
+![alt text](WireframeGameboard.png.png)
+![alt text](WireframeStartingPage.png.png)
 
 ## MV USER-STORIES
 
@@ -239,7 +242,7 @@ this will be mostly css
 **-As a user i want to have a message that tells me i won/lost**
 
 
-1. in my html:
+1. in my html: 
     `<div id="msgBoard">`
 2. in my js
     `const msgBoard = document.querySelector("#msgBoard")`
@@ -375,7 +378,23 @@ this will be mostly css
 `}`
 > create a array of winning combos that will never change(static)
 
+**-As a user i want to know when the game is over**
+1. in my js:
 
+`gameOver(){`
+    `if (document.querySelelctor(#timesUp) == "TIMES UP!") !winningCombos}{`    
+        `alert("GAME OVERRRR!")`
+    `}else if(document.querySelector(#timesUp) === "TIMES UP!"`
+        `if (winningCombos === [0]){`
+           `alert("GAME OVERRR!") `
+           `}else if (winningCombos === [1]){`
+           `alert("GAME OVERRR!")`
+           `}else if (winningCombos === [2]){`
+           `alert("GAME OVERRR!")`
+           `}else if (winningCombos === [3]){`
+           `alert("GAME OVERRR!")`
+>create a gameOver method that will update the DOM to show that the player has lost based on running out of time, getting no matching pairs
+>or running out of time and getting only 1-3 of the matching pairs
 ## TIER2 USER STORIES
 -play against another player
 -have music
