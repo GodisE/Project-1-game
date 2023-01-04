@@ -16,8 +16,9 @@ timer runs  out
 3.  This game is all about memory! So try and remember where the images are placed
 
 ## WIREFRAMES
-![alt text](WireframeGameboard.png.png)
 ![alt text](WireframeStartingPage.png.png)
+![alt text](WireframeGameboard.png.png)
+
 
 ## MV USER-STORIES
 
