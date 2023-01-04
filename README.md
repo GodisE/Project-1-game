@@ -50,8 +50,6 @@ pictures. Find them all before the timer runs out to win the game!
      `<button id="play-button">Play game</button>`
 
 2. in my js:
-
-
     `const playButton = document.querySelector("#play-button")`
         `playButton.addEventLister("click", () => {`
         `})`
@@ -229,9 +227,7 @@ this will be mostly css
     `<button id="reset-button">Reset Game</button>`
 2. in my js:
    `const resetButton = document.querySelector("#reset-button")`
-    `resetButton.addEventListener = ("click" => {
-        alert("Starting game...")`
-    })`
+    `resetButton.addEventListener = ("click" => {alert("Starting game...")})`
 
     `const render = () => {}`
 
