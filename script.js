@@ -91,11 +91,10 @@ class Timer  {
 
 
 
-const startingTime = 1
+const startingTime = 2
 let time = startingTime * 60 
 let minutes = Math.floor(time / 60) 
 let seconds = Math.floor(startingTime % 60 )
-let endtime = "00:00"
 const timer = document.querySelector("#timer")
 
 
@@ -104,55 +103,24 @@ const timer = document.querySelector("#timer")
 
 
 const updateCountdown = setInterval(() =>{
-    time--;
-    const startingTime = 1
+    
+    const startingTime = 2
     let minutes = Math.floor(time / 60) 
-    let seconds = Math.floor(startingTime % 60 )
+    let seconds = Math.floor(time % 60 )
     let endtime = "00:00"
-    minutes = minutes - 1;
-    seconds = seconds - 1;
+    time--;
     timer.innerHTML = minutes + " : " + seconds
     if (minutes == 0 && seconds == 0){
       clearInterval (updateCountdown)
+        timer.innerHTML = endtime
+      
+       
+   }else if (minutes <= 9 && seconds <= 9) {
+     timer.innerHTML = "0"+ minutes + " : " +"0" +seconds
+   // }else if (seconds <= 9 ){
+   //   timer.innerHTML = minutes + " : " + "0"+seconds
    } 
 
     
 }, 1000);
   
-
-
-
-
-    setInterval(function updateCountdown(startingTime) {
-    const minutes = Math.floor(time / 60)
-    let seconds = time % 60
-    timer.innerHTML = minutes + " : " + seconds
-    time --}, 1000)
-    
-
-
-// //variable to hold starting time that'll never change
-// const startingTime = 10
-// //variable to hold total time that will change as mins and secs change
-// let time = startingTime * 60 
-// //variable to hold minutes 
-// let minutes = Math.floor(time / 60) 
-// //variable to hold seconds
-// let seconds = startingTime % 60 
-// //variable that holds the time we're counting down to or the end time
-// let endTime = new startingTime("00:00")
-// //grabbing timer element from HTML
-// const countdown = document.querySelector("#countdown")
-
-// //creating a variable that holds our time counting down function
-// //using setInterval() to keep calling the function every second (,1000)
-// //passing an arrow function into setInterval() that's counting down our time and
-// //updating the DOM
-// const countdown = setInterval(() => {
-//   time--;
-//   timer.innerHTML = "10: " + time;
-//   if (time <= 0 || time < 1 ){
-//     clearInterval(countdown)
-//   }
-// },1000)
-// timer.innerHTML = time
