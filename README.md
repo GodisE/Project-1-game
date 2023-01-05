@@ -395,8 +395,8 @@ this will be mostly css
 >create a gameOver method that will update the DOM to show that the player has lost based on running out of time, getting no matching pairs
 >or running out of time and getting only 1-3 of the matching pairs
 ## TIER2 USER STORIES
--play against another player
--have music
--multiple players
+-As a user I want to play against another player
+-As a user I want to have music
+-As a user I want to multiple players
 ## TIER3 USER STORIES
--join an online game
+-As a user I want to join an online game
