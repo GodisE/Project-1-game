@@ -1,92 +1,123 @@
-// const cardOne = document.querySelector(".one")
-// const cardTwo = document.querySelector(".two")
-// const cardThree = document.querySelector(".three")
-// const cardFour = document.querySelector(".four")
-// const cardFive = document.querySelector(".five")
-// const cardSix = document.querySelector(".six")
-// const cardSeven = document.querySelector(".seven")
-// const cardEight = document.querySelector(".eight")
-
-// const back1 = document.querySelector(".back1")
-// const back2 = document.querySelector(".back2")
-// const back3 = document.querySelector(".back3")
-// const back4 = document.querySelector(".back4")
-// const back5 = document.querySelector(".back5")
-// const back6 = document.querySelector(".back6")
-// const back7 = document.querySelector(".back7")
-// const back8 = document.querySelector(".back8")
-
-
-// cardOne.addEventListener("click", cardFlip)
-                         
-// cardTwo.addEventListener("click", cardFlip)
-
-// cardThree.addEventListener("click", cardFlip)
-
-// cardFour.addEventListener("click", cardFlip)
-
-// cardFive.addEventListener("click", cardFlip)
-
-// cardSix.addEventListener("click", cardFlip)
-
-// cardSeven.addEventListener("click", cardFlip)
-
-// cardEight.addEventListener("click", cardFlip)
-
+const cardOne = document.querySelector(".one")
 const cards = document.querySelector(".card")
 
-// function cardFlip() {
-//   cardOne.classList.toggle("cardFlip")
-  
-// }
+cardsChosen = []
+idOfChosenCards =[]
+matchingCards = []
 
-// function cardFlip() {
-//   cardTwo.classList.toggle("cardFlip")
-// }
+const cardsArray = [
+    {
+    name: "fries",
+    img: "images/fries.png"
+},
+{
+    name: "fries",
+    img: "images/fries.png"
+},
+{
+    name: "burger",
+    img: "images/burger.png"
+},
+{
+    name: "burger",
+    img: "images/burger.png"
+},
+{
+    name: "pizza",
+    img: "images/pizza.png"
+},
+{
+    name: "pizza",
+    img: "images/pizza.png"
+},
+{
+    name: "pasta",
+    img: "images/pasta.png"
+},
+{
+    name: "pasta",
+    img: "images/pasta.png"
+}
+]
 
-// function cardFlip() {
-//   cardThree.classList.toggle("cardFlip")
-// }
 
-// function cardFlip() {
-//   cardFour.classList.toggle("cardFlip")
-// }
 
-// function cardFlip() {
-//   cardFive.classList.toggle("cardFlip")
-// }
 
-// function cardFlip() {
-//   cardSix.classList.toggle("cardFlip")
-// }
-
-// function cardFlip() {
-//   cardSeven.classList.toggle("cardFlip")
-// }
-
-// function cardFlip() {
-//   cardEight.classList.toggle("cardFlip")
-// }
-
-// setInterval( function cardFlip() {
-//   cards.addEventListener("click", () => {
-//     alert("clicked Gworl!")
-
-// cards.classList.toggle("cardFlip")
-// })
-//   })
-class Timer  {
-  constructor (countdown, startingTime, endtime, timeleft){
-    this.countdown = document.querySelector("#countdown")
-    this.startingTime = startingTime
-    this.endtime = 0
-    this.timeleft = timeleft
-  }
-  getTime(){
-    
-  }
+function createGame() {
+    for (let i = 0; i < cardsArray.length; i++){
+        const cardImg = document.createElement("img")
+        cardImg.setAttribute("src", "images/question.png")
+        cardImg.setAttribute("data-id", i)
+        cardImg.addEventListener("click", cardFlip)
+        cards.appendChild(cardImg)
+    }
 }
 
+function checkForMatch() {
+    const cards = document.querySelectorAll ("img")
+    const firstOption = idOfChosenCards[0]
+    const secondOption = idOfChosenCards[1]
+    if (cardsChosen[0] === cardsChosen[1] && cardsChosen[2] === cardsChosen[3]
+        && cardsChosen[4] === cardsChosen[5] && cardsChosen[6] === cardsChosen[7] && 
+        timer !== endtime) 
+        alert("Hell yeah!")
+        cards[firstOption].setAttribute("src", "images/thumbsUp.png")
+        cards[secondOption].setAttribute("src", "images/thumbsUp.png")
+        matchingCards.push(cardsChosen)
+    // }else{
+    //     cards[firstOption].setAttribute("src", "images/question.png")
+    //     cards[secondOption].setAttribute("src", "images/question.png")
+    //     alert("woops!")
+    }
+  
+
+
+
+
+
+
+
+function cardFlip(){
+    const cardId = this.getAttribute("data-id")
+    cardsChosen.push(cardsArray[cardId].name)
+    idOfChosenCards.push(cardId)
+    this.setAttribute("src", cardsArray[cardId].img)
+    if (cardsChosen === 2){
+        setTimeout(checkForMatch, 100)
+    }
+}
+
+
+
+
+
+createGame()
+
+
+
+
+
+// class MemoryGame {
+//     constructor(cards, message){
+//         this.cards = cards
+//         this.message = message
+//     }
+
+//     static winningCombos = [
+//         [1,8],
+//         [2,5],
+//         [3,7],
+//         [4,6]
+
+//     ]
+
+//     winLose(){
+//         if (timer.innerHTML = endtime){
+
+//         }
+        
+//     }
+//     }
 
 
 
