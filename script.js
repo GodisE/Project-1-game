@@ -1,135 +1,20 @@
-const cardOne = document.querySelector(".one")
-const cards = document.querySelector(".card")
+//grabbing each card and getting a nodeList returned w document.querySelectorAll
 
-cardsChosen = []
-idOfChosenCards =[]
-matchingCards = []
+const cards = document.querySelectorAll(".card")
+const message = document.querySelector(".msg")
+//define variable to a boolean to check if cards are flipped
+//define variable to a boolean to 
+//define card variables to represent the click of each
 
-const cardsArray = [
-    {
-    name: "fries",
-    img: "images/fries.png"
-},
-{
-    name: "fries",
-    img: "images/fries.png"
-},
-{
-    name: "burger",
-    img: "images/burger.png"
-},
-{
-    name: "burger",
-    img: "images/burger.png"
-},
-{
-    name: "pizza",
-    img: "images/pizza.png"
-},
-{
-    name: "pizza",
-    img: "images/pizza.png"
-},
-{
-    name: "pasta",
-    img: "images/pasta.png"
-},
-{
-    name: "pasta",
-    img: "images/pasta.png"
-}
-]
+const cardsArray = Array.prototype.slice.call(cards)
 
 
 
 
-function createGame() {
-    for (let i = 0; i < cardsArray.length; i++){
-        const cardImg = document.createElement("img")
-        cardImg.setAttribute("src", "images/question.png")
-        cardImg.setAttribute("data-id", i)
-        cardImg.addEventListener("click", cardFlip)
-        cards.appendChild(cardImg)
-    }
-}
-
-function checkForMatch() {
-    const cards = document.querySelectorAll ("img")
-    const firstOption = idOfChosenCards[0]
-    const secondOption = idOfChosenCards[1]
-    if (cardsChosen[0] === cardsChosen[1] && cardsChosen[2] === cardsChosen[3]
-        && cardsChosen[4] === cardsChosen[5] && cardsChosen[6] === cardsChosen[7] && 
-        timer !== endtime) 
-        alert("Hell yeah!")
-        cards[firstOption].setAttribute("src", "images/thumbsUp.png")
-        cards[secondOption].setAttribute("src", "images/thumbsUp.png")
-        matchingCards.push(cardsChosen)
-    // }else{
-    //     cards[firstOption].setAttribute("src", "images/question.png")
-    //     cards[secondOption].setAttribute("src", "images/question.png")
-    //     alert("woops!")
-    }
-  
-
-
-
-
-
-
-
-function cardFlip(){
-    const cardId = this.getAttribute("data-id")
-    cardsChosen.push(cardsArray[cardId].name)
-    idOfChosenCards.push(cardId)
-    this.setAttribute("src", cardsArray[cardId].img)
-    if (cardsChosen === 2){
-        setTimeout(checkForMatch, 100)
-    }
-}
-
-
-
-
-
-createGame()
-
-
-
-
-
-// class MemoryGame {
-//     constructor(cards, message){
-//         this.cards = cards
-//         this.message = message
-//     }
-
-//     static winningCombos = [
-//         [1,8],
-//         [2,5],
-//         [3,7],
-//         [4,6]
-
-//     ]
-
-//     winLose(){
-//         if (timer.innerHTML = endtime){
-
-//         }
-        
-//     }
-//     }
-
-
-
-
-const startingTime = 2
-let time = startingTime * 60 
-let minutes = Math.floor(time / 60) 
-let seconds = Math.floor(startingTime % 60 )
-const timer = document.querySelector("#timer")
-
-
-
+let flippedCard = false
+let lockBoard = false
+let firstCard, secondCard
+let endtime = "00:00"
 
 
 
@@ -153,5 +38,171 @@ const updateCountdown = setInterval(() =>{
    } 
 
     
-}, 1000);
-  
+}, 1000)
+
+
+
+
+
+//create a function to flip cards
+
+function flipCard () {
+//if lockBoard = false, then check for match
+if(lockBoard){
+        checkForMatch()
+    }
+
+//if this is deeply equal to the first cards info, then check for match
+if(this === firstCard){
+    checkForMatch()
+}
+//adding .flip from css to each card
+this.classList.add("flip")
+
+//if flipped card is true, change the defined boolean to true, and the 
+    //first card will equal the info inside the div of the card clicked
+if (!flippedCard){
+    
+    flippedCard = true;
+    firstCard = this
+//otherwise, the second card will equal the info inside the div of card clicked,
+    //and will check for a match of the first/second
+    }else{ 
+
+        secondCard = this 
+
+    checkForMatch()
+    }   
+}
+
+
+//create a function to check for matches
+
+function checkForMatch(){
+    //if the info inside the div of the first card matches the info inside
+        //the second card, then incoke the matching cards function
+    if (timer !== endtime)
+    if(cardsArray[0] === cardsArray[1] 
+        // cardsArray[2] === cardsArray[3] &&
+        // cardsArray[4] ===  cardsArray[5] && 
+        // cardsArray[6] ===  cardsArray[7]  
+    ){
+        document.querySelector(".msg").innerHTML ("You won!")
+    //otherwise, invoke the not matching function
+    // }else {
+    //     notMatching()
+    }
+}
+
+function matchingCards (){
+    firstCard.removeEventListener("click", flipCard)
+    secondCard.removeEventListener("click", flipCard)
+    
+    document.querySelector(".msg").innerHTML = "Yes!"
+    reset()
+}
+
+
+
+
+
+function notMatching (){
+    lockBoard = true
+    setTimeout(() => { 
+        firstCard.classList.remove("flip")
+        secondCard.classList.remove("flip")
+        reset()
+        }, 700)
+        
+}
+
+function reset (){
+    flippedCard = false
+    lockBoard = false
+    firstCard = null
+    secondCard = null
+   
+}
+
+(function shuffleCards(){
+    cards.forEach(card => {
+        let randomNum = Math.floor(Math.random() * 9)
+        cards.style = randomNum
+    })
+})()
+
+cards.forEach(card => card.addEventListener("click", flipCard))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const startingTime = 2
+let time = startingTime * 60 
+let minutes = Math.floor(time / 60) 
+let seconds = Math.floor(startingTime % 60 )
+const timer = document.querySelector("#timer")
+
+
+
+
+
+
+
