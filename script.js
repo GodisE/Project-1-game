@@ -219,23 +219,18 @@ function pauseTime (){
 
 
 
-
-
-
-
-
 // remove flipcard class from each card clicked and invoke game function again
 
 // how do i access each card clicked? ()
 
 function resetGame() {
-   
-    
+    firstCard.classList.remove("flip")
+    secondCard.classList.remove("flip")
 
 
 }
 
-console.log(resetGame)
+
 
 
 
