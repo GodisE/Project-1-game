@@ -89,7 +89,11 @@ p {
 
 
 
-/*  .hide {
+ .hide {
   display: none;
 
-}  */
+} 
+
+.play-game.hide{
+  display: flex;
+}
