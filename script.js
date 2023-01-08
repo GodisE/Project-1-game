@@ -1,6 +1,7 @@
-///grabbing each card and getting a nodeList returned w document.querySelectorAll
+//grabbing all elements needed for easy access and adding functioning
 
-const cards = document.querySelectorAll(".card")
+//turning our cards nodeList into an array
+const cards = [...document.querySelectorAll(".card")]
 const message = document.querySelector(".msg")
 const winLossMsg = document.querySelector(".winLoss")
 const playButton = document.querySelector(".playButton") 
@@ -8,67 +9,68 @@ const resetButton = document.querySelector("#reset")
 const resetButtonId = document.querySelector("#hide")
 const timer = document.querySelector("#timer")
 const gameBoard = document.querySelector(".hide")
+const image = document.querySelector(".cutie")
 const startingTime = 0
-//define variable to a boolean to check if cards are flipped
-//define variable to a boolean for the same card not to register as a match
-//define card variables to represent the click of each
 
 
+//create a function to switch the pages 
+function switchPage (){
+    //grab the elements with the class of "die"
+    const hidden = document.querySelector(".hide")
+    //stop them from being seen by blocking display
+    hidden.style.display = "block"
+    //grab the element with an id of "hide" and block its display onclick
+    document.getElementById("hide").style.display = this.style.display = "none"
+    //add a class of "hide" to the image on starter page, so it 
+    //won't be visible to the player onclick
+    image.classList.add("hide")
+
+    }
+
+    //add an event listener to each individual element with a class of card 
+    cards.forEach(card => card.addEventListener("click", flipCard) )
+
+
+
+
+
+//add click event listener to play button and onclick, invoke the switchPage function
 playButton.addEventListener("click", switchPage)
 
 
-function switchPage (){
-    const cardsHidden = document.querySelector(".hide")
-    cardsHidden.style.display = "block"
-    document.getElementById("hide").style.display = this.style.display = "none"
-    }
-
-     
-    
-    // console.log("worked")
-
-
-
-
-
-
-
-
-
-
-
-
-
-const cardsArray = Array.from(cards)
-
-console.log(cardsArray)
 
 //when a match is made put it in here
 chosenCards = []
+//when a pair is incorrect put it here
 wrongCards = []
+//boolean variable to detect if cards are flipped
 let flippedCard = false
+//variables to hold the first and second card clicked
 let firstCard
 let secondCard
-let endtime = "00:00"
+//variables to show each second of the timer
 let time = startingTime * 60 
+//variables holding seconds and minutes of timer
 let minutes = 0
 let seconds = 0
 
 
-
+//create a variable to update the DOM of the timer each second
+//using setInterval() to update the DOM each second
 const updateCountdown = setInterval(() =>{
     
-   
+    //update the minutes each minute
     let minutes = Math.floor(time / 60) 
+    //update the seconds each second
     let seconds = Math.floor(time % 60 )
+    //increase the time
     time++;
+    //update the DOM with moving minutes and seconds
     timer.innerHTML = minutes + " : " + seconds
    
 
     
 }, 1000)
-
-
 
 
 //create a function to flip cards
@@ -77,11 +79,18 @@ function flipCard () {
 //this represents the element that was clicked 
 this.classList.add("flip")
 
+//if the cards are flipped, the first card clicked fills 
+//the undefined firstCard variable
 if (!flippedCard){
 
     flippedCard = true
     firstCard = this
 
+
+
+//else, the second card clicked fills the undefined secondCard
+//variable, and flipped card returns to false for the next set,
+//and the checkForMatch function is invoked
 } else {
 
     flippedCard = false
@@ -89,86 +98,108 @@ if (!flippedCard){
 checkForMatch()
 
 
-
-
-
+}
 
 }
 
-
-
-
-}
-
-for (let i = 0; i < cardsArray.length; i++){
-    cardsArray[i].addEventListener("click", flipCard)
-}
-
-
-
+//create a function to check if cards match
 
 function checkForMatch () {
+
+    //if the data inside the first card clicked matches the data inside
+    //the second card clicked
     if (firstCard.dataset.id === secondCard.dataset.id){
+    //invoke the cardsMatch function    
     cardsMatch()
-    
+     // push the cards clicked to our empty chosenCards[]
+    //invoke checkCardsMatch function
     chosenCards.push(firstCard.dataset.id, secondCard.dataset.id)
-    checkCardsMatch() 
+    winOrLose() 
     
-
-}else{
+    //else invoke the cardsDontMatch function and 
+    }else{
     cardsDontMatch()
+
+    //update the the empty msg element with text 
     message.innerHTML = ("not quite!")
+
+    //push the cards clicked to our empty wrongCards[]
     wrongCards.push(firstCard.dataset.id, secondCard.dataset.id)
-    
-    checkCardsMatch()
+
+    //invoke checkCardsMatch function
+    winOrLose()
 }
 
 
-    
-}
 
 
-
+//create a function for cards that match
 function cardsMatch () {
+    //remover the event listener and flipCard function of the matching cards
     firstCard.removeEventListener("click", flipCard)
     secondCard.removeEventListener("click", flipCard)
 }
 
 
 
+//create a function for cards that dont match
+function cardsDontMatch () {
+    //use setTimeout() to slow down the process of this block
+    setTimeout(() => {
+    //remove the first and second cards clicked, flip class    
+    firstCard.classList.remove("flip")
+    secondCard.classList.remove("flip")
+    //update the message element to empty
+    message.innerHTML = ""
+    }, 500)
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-function checkCardsMatch () { 
+//create a function for win/lose logic
+function winOrLose () { 
+    //use setTimeout to slowdown the process of this block
      setTimeout(() => {
-    
-    if (chosenCards.length === 8 && timer.innerHTML !== endtime){
+    //if our empty chosenCards array's length is equal to 8
+    if (chosenCards.length === 8 ){
+       //update the empty message element with text  
        document.querySelector(".winLoss").innerHTML = ("you win!") 
-       clearInterval(updateCountdown)
+      
 
 
-
+    //else if our empty wrongCards array's length is strictly equal to 4
     }else if (wrongCards.length === 4){
+        //clear the inner HTML of out message element
        document.querySelector(".msg").innerHTML = "" 
+        //update the empty winLoss with text
        document.querySelector(".winLoss").innerHTML = ("you lose") 
-       clearInterval(updateCountdown)
+      
        
     }
     
  }, 100)
 }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -176,13 +207,6 @@ function checkCardsMatch () {
 
 
 
-function cardsDontMatch () {
-    setTimeout(() => {
-    firstCard.classList.remove("flip")
-    secondCard.classList.remove("flip")
-    message.innerHTML = ""
-    }, 500)
-}
 
 
 
@@ -195,36 +219,12 @@ function cardsDontMatch () {
 
 
 
-// remove flipcard class from each card clicked and invoke game function again
-
-// how do i access each card clicked? ()
-
-function resetGame() {
-    //hiding the restart game button
-    document.getElementById("hide").style.display = "initial"
-    //removing the flip class from each card onlick of reset buttom
-    for (let i = 0; i < cardsArray.length; i++){
-        cardsArray[i].classList.remove("flip")
-    }
-    resetButton.classList.add("hide")
-    //invoke functions to replay game
-   resetTimer()
-   
-    checkCardsMatch()
-
-}
-
-function resetTimer(){
-    clearInterval(updateCountdown)
-    let minutes = Math.floor(time / 60) 
-    let seconds = Math.floor(time % 60 )
-    time++;
-    timer.innerHTML = minutes + " : " + seconds
-}
 
 
 
-resetButton.addEventListener("click", resetGame)
+
+
+
 
 
 

@@ -2,24 +2,24 @@
 
 ## WHAT THE GAME WILL BE ABOUT
 
--A memory game that will require players to match cards of the same picture
--The player will have a limited amount of time to 
-match 6 pairs of pictures
--Player will also lose the game if the timer runs out
+-A memory game that will require the player to match cards of the same picture
+-The player will have 2 attempts to 
+match 4 pairs of pictures
+-If all pairs are matched, the player wins the game
+-If the player gets 2 incorrect matches, the player loses
 
 
 ## HOW TO PLAY
 
-1. Find the 3 pairs of matching pictures before the
-timer runs  out
-2. click on each image and remember where it is, try to find a match to that picture
+1. Find the 4 pairs of matching pictures 
+2. click on each image and remember where it is, try to find a match to that picture by clicking on another card
 3.  This game is all about memory! So try and remember where the images are placed
 4. There are 8 cards, meaning there are 4 pairs of
-pictures. Find them all before the timer runs out to win the game!
+pictures. Find them all with less than 2 wrong guesses and you win the game!
 
 ## WIREFRAMES
-![alt text](WireframeStartingPage.png.png)
-![alt text](WireframeGameboard.png.png)
+![alt text](images/StarterPg.png)
+![alt text](images/GamePg.png)
 
 
 ## MV USER-STORIES
@@ -406,20 +406,11 @@ function switchPage (){
 
 
 1. in my html:
- `const resetButton = document.querySelector("#reset")`
-2. in my js:
+```
+ <button onClick="window.location.reload();">Restart Game</button>
 
 ```
-    const resetButton = document.querySelector("#reset")
-
-    function resetGame() {
-    firstCard.classList.remove("flip")
-    secondCard.classList.remove("flip")
-
-    }
-
-    resetButton.addEventListener("click", resetGame)
-```
+>Reloading the entire game when the user clicks the reset button
 
     
 
@@ -603,9 +594,12 @@ function checkCardsMatch () {
 >create a function to check if our empty arrays are full, and fill the inner html of empty tag element based on the length of the arrays
 
 ## TIER2 USER STORIES
--As a user I want to play against another player
--As a user I want to have music
--As a user I want to multiple players
--As a user i want to able to increase points
+
+**-As a user I want to play against another player**
+**-As a user I want to have music**
+**-As a user I want to multiple players**
+**-As a user i want to increase points**
+
 ## TIER3 USER STORIES
--As a user I want to join an online game
+
+**-As a user I want to join an online game**

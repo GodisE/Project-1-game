@@ -11,8 +11,6 @@ body{
 }
 
 
-
-
 .memory-game{
   margin: auto;
   display: flex;
@@ -58,20 +56,6 @@ body{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 p {
     background-color: black;
     align-items: center;
@@ -86,14 +70,30 @@ p {
     border-radius: 100%;
   
 }
-
+.cutie{
+  margin-left: 79%;
+ 
+}
 
 
  .hide {
   display: none;
-
+  align-items: center;
+  margin-left: 10%;
 } 
 
 .play-game.hide{
   display: flex;
+}
+
+.playButton{
+  margin-left: 119%;
+  font-size: 60px;
+  
+}
+
+.reset{
+  margin-left: 45%;
+  font-size: 48px;
+  
 }
