@@ -47,7 +47,6 @@ console.log(cardsArray)
 chosenCards = []
 wrongCards = []
 let flippedCard = false
-let lockBoard = false
 let firstCard
 let secondCard
 let endtime = "00:00"
@@ -170,16 +169,16 @@ function cardsMatch () {
 function checkCardsMatch () { 
      setTimeout(() => {
     
-    if (chosenCards.length === 8 && timer.innerHTML !== endtime){
+    if (chosenCards.length === 8 ){
        document.querySelector(".winLoss").innerHTML = ("you got it!") 
-       pauseTime()
+      
 
 
 
     }else if (wrongCards.length === 4){
        document.querySelector(".msg").innerHTML = "" 
        document.querySelector(".winLoss").innerHTML = ("you lose") 
-        pauseTime()
+       
     }
     
  }, 100)
@@ -202,14 +201,6 @@ function cardsDontMatch () {
 
 
 
-function pauseTime (){
-    if (wrongCards.length === 4){
-        timer.innerHTML = minutes + " : " + seconds
-    }
-    if (chosenCards === 8){
-        timer.innerHTML = minutes + " : " + seconds
-    }
-}
 
 
 
@@ -227,7 +218,6 @@ function resetGame() {
     firstCard.classList.remove("flip")
     secondCard.classList.remove("flip")
 
-
 }
 
 
@@ -236,7 +226,6 @@ function resetGame() {
 
 
 resetButton.addEventListener("click", resetGame)
-
 
 
 
