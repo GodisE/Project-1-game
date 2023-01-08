@@ -9,13 +9,18 @@ match 4 pairs of pictures
 -If the player gets 2 incorrect matches, the player loses
 
 
-## HOW TO PLAY
+## GETTING STARTED/ HOW TO PLAY
 
 1. Find the 4 pairs of matching pictures 
 2. click on each image and remember where it is, try to find a match to that picture by clicking on another card
 3.  This game is all about memory! So try and remember where the images are placed
 4. There are 8 cards, meaning there are 4 pairs of
 pictures. Find them all with less than 2 wrong guesses and you win the game!
+
+## TECHNOLOGIES USED
+1. Html
+2. Css
+3. Javascript
 
 ## WIREFRAMES
 ![alt text](images/StarterPg.png)
@@ -603,3 +608,7 @@ function checkCardsMatch () {
 ## TIER3 USER STORIES
 
 **-As a user I want to join an online game**
+
+
+## LAUNCH GAME HERE
+[MemoryGame](https://godise.github.io/Project-1-game/)

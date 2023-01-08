@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 body{
   height: 100vh;
   background-color: thistle;
@@ -30,6 +31,7 @@ body{
   transition: transform .5s;
 }
 
+
 .card :active {
   transform: scale(1);
   transition: transfprm .2s;
@@ -44,6 +46,7 @@ body{
   position: absolute;
   backface-visibility: hidden;
 }
+
 
 .front{
   transform: rotateY(180deg);
@@ -69,6 +72,7 @@ p {
     width: 100px;
     border-radius: 100%;
   
+
 }
 .cutie{
   margin-left: 79%;
@@ -82,15 +86,18 @@ p {
   margin-left: 10%;
 } 
 
+
 .play-game.hide{
   display: flex;
 }
+
 
 .playButton{
   margin-left: 119%;
   font-size: 60px;
   
 }
+
 
 .reset{
   margin-left: 45%;

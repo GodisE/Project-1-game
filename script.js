@@ -98,7 +98,7 @@ if (!flippedCard){
 checkForMatch()
 
 
-}
+    }
 
 }
 
