@@ -1,12 +1,14 @@
-//grabbing each card and getting a nodeList returned w document.querySelectorAll
+///grabbing each card and getting a nodeList returned w document.querySelectorAll
 
 const cards = document.querySelectorAll(".card")
 const message = document.querySelector(".msg")
 const winLossMsg = document.querySelector(".winLoss")
 const playButton = document.querySelector(".playButton") 
 const resetButton = document.querySelector("#reset")
+const resetButtonId = document.querySelector("#hide")
 const timer = document.querySelector("#timer")
-const startingTime = 2
+const gameBoard = document.querySelector(".hide")
+const startingTime = 0
 //define variable to a boolean to check if cards are flipped
 //define variable to a boolean for the same card not to register as a match
 //define card variables to represent the click of each
@@ -17,13 +19,11 @@ playButton.addEventListener("click", switchPage)
 
 function switchPage (){
     const cardsHidden = document.querySelector(".hide")
-    const gameButton =  document.querySelector(".playButton")
-    if  (cardsHidden.style.display = "block"){
-       gameButton.style.display = "block"
-    }
+    cardsHidden.style.display = "block"
+    document.getElementById("hide").style.display = this.style.display = "none"
     }
 
-       
+     
     
     // console.log("worked")
 
@@ -51,33 +51,22 @@ let firstCard
 let secondCard
 let endtime = "00:00"
 let time = startingTime * 60 
-let minutes = Math.floor(time / 60) 
-let seconds = Math.floor(startingTime % 60 )
+let minutes = 0
+let seconds = 0
 
 
 
 const updateCountdown = setInterval(() =>{
     
-    const startingTime = 2
+   
     let minutes = Math.floor(time / 60) 
     let seconds = Math.floor(time % 60 )
-    let endtime = "00:00"
-    time--;
+    time++;
     timer.innerHTML = minutes + " : " + seconds
-    if (minutes == 0 && seconds == 0){
-      clearInterval (updateCountdown)
-        timer.innerHTML = endtime
-      
-       
-   }else if (minutes <= 9 && seconds <= 9) {
-     timer.innerHTML = "0"+ minutes + " : " +"0" +seconds
-   // }else if (seconds <= 9 ){
-   //   timer.innerHTML = minutes + " : " + "0"+seconds
-   } 
+   
 
     
 }, 1000)
-
 
 
 
@@ -86,7 +75,7 @@ const updateCountdown = setInterval(() =>{
 
 function flipCard () {
 //this represents the element that was clicked 
-this.classList.toggle("flip")
+this.classList.add("flip")
 
 if (!flippedCard){
 
@@ -99,11 +88,7 @@ if (!flippedCard){
     secondCard = this
 checkForMatch()
 
-// console.log(firstCard)
-// console.log(secondCard)
-// console.log(flippedCard)
-// console.log(firstCard.dataset.id)
-// console.log(secondCard.dataset.id)
+
 
 
 
@@ -169,22 +154,22 @@ function cardsMatch () {
 function checkCardsMatch () { 
      setTimeout(() => {
     
-    if (chosenCards.length === 8 ){
-       document.querySelector(".winLoss").innerHTML = ("you got it!") 
-      
+    if (chosenCards.length === 8 && timer.innerHTML !== endtime){
+       document.querySelector(".winLoss").innerHTML = ("you win!") 
+       clearInterval(updateCountdown)
 
 
 
     }else if (wrongCards.length === 4){
        document.querySelector(".msg").innerHTML = "" 
        document.querySelector(".winLoss").innerHTML = ("you lose") 
+       clearInterval(updateCountdown)
        
     }
     
  }, 100)
 }
 
-console.log(chosenCards)
 
 
      
@@ -215,17 +200,33 @@ function cardsDontMatch () {
 // how do i access each card clicked? ()
 
 function resetGame() {
-    firstCard.classList.remove("flip")
-    secondCard.classList.remove("flip")
+    //hiding the restart game button
+    document.getElementById("hide").style.display = "initial"
+    //removing the flip class from each card onlick of reset buttom
+    for (let i = 0; i < cardsArray.length; i++){
+        cardsArray[i].classList.remove("flip")
+    }
+    resetButton.classList.add("hide")
+    //invoke functions to replay game
+   resetTimer()
+   
+    checkCardsMatch()
 
+}
+
+function resetTimer(){
+    clearInterval(updateCountdown)
+    let minutes = Math.floor(time / 60) 
+    let seconds = Math.floor(time % 60 )
+    time++;
+    timer.innerHTML = minutes + " : " + seconds
 }
 
 
 
-
-
-
 resetButton.addEventListener("click", resetGame)
+
+
 
 
 

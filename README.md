@@ -24,18 +24,9 @@ pictures. Find them all before the timer runs out to win the game!
 
 ## MV USER-STORIES
 
--As a user i want to start the game
+**-As a user i want to start the game**
  
-1. in js:
-```
-const cards = document.querySelectorAll(".card")
-
-chosenCards = []
-wrongCards = []
-
-
-```
-2. in my html:
+1.in my html:
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -104,14 +95,20 @@ wrongCards = []
 
 
 ```
-> initialize function to call other created objects that start the game 
+2.  in js:
+
+```
+const cards = document.querySelectorAll(".card")
+
+chosenCards = []
+wrongCards = []
+
+```
+> create elements to hold starter page, timer, and the pictures of the front/back of cards
     
-> initialize() is used to start the app in a web server
      
-> place new game inside the initialize function to update the DOM with our set classes, functions, etc
-> instanitate the class by using the keyword new 
-    to create a new object of our class, runs the constructor function in the class, returns the object and updates the DOM with all the 
-    properties and methods from the class
+> Grab the cards created from HTML and make empty array's for wrong/right matches
+
 
        
 **-As a user i want to click the play button**
@@ -128,7 +125,8 @@ wrongCards = []
         playButton.addEventLister("click")
 
 ```
- > add an eventListener to this button
+>create button in HTML
+> add an eventListener to this button
 
 
 **-As a user i want to have a starter page**
@@ -141,6 +139,7 @@ wrongCards = []
   
                 </main> 
 ```                
+>create a main tag and place all elements that'll be on that page inside that tage, give it an id
 
 **-As a user i want to have a gameboard**
 
@@ -195,8 +194,7 @@ wrongCards = []
                            
 </body>   
 
-```
-> 
+``` 
 
 
 **-As a user i want to be taken to another page where i can see the game-board**
@@ -295,6 +293,9 @@ body{
 }
 
 ```
+>select all elements that exist within the gameboard to add easy functionality to them
+
+>Add styling to the gameboard
 
 **-As a user i want to be able to see my gameboard**
 
@@ -396,12 +397,10 @@ function switchPage (){
 
 
 
-
-
-
 ```
+>add an event listener to the play button, so when its clicked it'll invoke the switchPage function, which takes the player to view the page
 
-
+>create a function that'll hide the play button and show the gameboard when clicked
 
 **-As a user i want to reset the game**
 
@@ -446,7 +445,9 @@ function switchPage (){
        
     }
 ```
+> create a empty h1 tag and give it a class 
 
+> if else statement to fill the empty h1 tag 
 
 
 
@@ -454,10 +455,30 @@ function switchPage (){
 
 1. in my html:
 ```
-<p id="timer">2:00</p>
+<p id="timer">00:00</p>
 
 ```
+2. in my css:
+```
+p {
+    background-color: black;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin: auto;
+    justify-content: center;
+    padding: 30px 5px 10px 5px; 
+    border: 5px;
+    height: 50px;
+    width: 100px;
+    border-radius: 100%;
+  
+}
 
+```
+>create a p tag and place the start time inside
+
+>give it styling so its visible to player
 
 **-As a user i want to know if i won**
 1. in my html:
@@ -471,6 +492,10 @@ function switchPage (){
    if (chosenCards.length === 8 ){
        document.querySelector(".winLoss").innerHTML = ("you got it!") 
 ```
+>create a empty h1 tag and give it a class name
+
+>create a if else statement that tells the player if they've won
+
 **-As a user i want to know if i lost**
 1. in my html:
 ```
@@ -489,27 +514,47 @@ function switchPage (){
     }
 
 ```
-**-As a user i want to know when the time is out**
-1. in my html:
-`<p id="timesUp"></p>`
+>create a empty h1 tag and give it a class name
 
+>create a if else statement that tells the player if they've lost
+
+**-As a user i want to see timer count up**
+1. in my html:
+```
+<p id="timer">00:00</p>
+
+```
 2. in my js:
 
-    `const timesUp = doument.querySelector("#timesUp")`
-    `if (minutes === 0 && seconds === 0){`
-        `document.querySelector("#timesUp").innerText = "TIMES UP!",`
-   ` }else{`
-        `document.querySelector ("#countdown").innerHTML = minutes + " : " + seconds`
-    `}`
+```
+const updateCountdown = setInterval(() =>{
+    
+   
+    let minutes = Math.floor(time / 60) 
+    let seconds = Math.floor(time % 60 )
+    time++;
+    timer.innerHTML = minutes + " : " + seconds
+   
 
-> updating the dom to show a message once the timer has run out("00:00)
+    
+}, 1000)
+```
+
+> updating the dom to show a the timer counting up
 
 **-As a user i want to know if i got a match wrong**
 
 1. in my html:
-2. in my css:
-3. in my js:
 ```
+<h1 class="msg"></h1>
+
+```
+2. in my js:
+```
+   cardsDontMatch()
+    message.innerHTML = ("not quite!")
+
+
     function cardsDontMatch () {
     setTimeout(() => {
     firstCard.classList.remove("flip")
@@ -519,25 +564,44 @@ function switchPage (){
 }
 
 ```
+>if cards dont match fill the empty h1 tag with text
 
+>create a function to detect if cards are a match, if not, remove the flip class
 
 **-As a user i want to know when the game is over**
-1. in my js:
+1. in my html:
+  ```
+  <h1 class="winLoss"></h1>
 
-`gameOver(){`
-    `if (document.querySelelctor(#timesUp) == "TIMES UP!") !winningCombos}{`    
-        `alert("GAME OVERRRR!")`
-    `}else if(document.querySelector(#timesUp) === "TIMES UP!"`
-        `if (winningCombos === [0]){`
-           `alert("GAME OVERRR!") `
-           `}else if (winningCombos === [1]){`
-           `alert("GAME OVERRR!")`
-           `}else if (winningCombos === [2]){`
-           `alert("GAME OVERRR!")`
-           `}else if (winningCombos === [3]){`
-           `alert("GAME OVERRR!")`
->create a gameOver method that will update the DOM to show that the player has lost based on running out of time, getting no matching pairs
->or running out of time and getting only 1-3 of the matching pairs
+  ```
+
+2. in my js:
+
+```
+wrongCards = []
+chosenCards=[]
+
+function checkCardsMatch () { 
+     setTimeout(() => {
+    
+    if (chosenCards.length === 8 && timer.innerHTML !== endtime){
+       document.querySelector(".winLoss").innerHTML = ("you win!") 
+       clearInterval(updateCountdown)
+
+
+
+    }else if (wrongCards.length === 4){
+       document.querySelector(".msg").innerHTML = "" 
+       document.querySelector(".winLoss").innerHTML = ("you lose") 
+       clearInterval(updateCountdown)
+       
+    }
+    
+ }, 100)
+}
+```
+>create a function to check if our empty arrays are full, and fill the inner html of empty tag element based on the length of the arrays
+
 ## TIER2 USER STORIES
 -As a user I want to play against another player
 -As a user I want to have music
