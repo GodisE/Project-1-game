@@ -1,5 +1,6 @@
 # Memory Game
-
+**DESCRIPTION**
+>Find all the matches with less than 2 mistakes and you win the game!
 
 ## GETTING STARTED/ HOW TO PLAY
 
