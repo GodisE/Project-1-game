@@ -33,7 +33,7 @@ pictures. Find them all with less than 2 wrong guesses and you win the game!
 
 ## MV USER-STORIES
 
-**-As a user i want to start the game**
+**-As a user i want to play the game**
  
 1.in my html:
 ```
@@ -43,80 +43,324 @@ pictures. Find them all with less than 2 wrong guesses and you win the game!
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
 </head>
 <link rel="stylesheet" href="style.css">
 
 <body>
+  
       <main id="starterPage">
-  
-    <button class="playButton">Play game!</button>
-  
-                </main> 
-                <h1 class="winLoss"></h1>
-                <h1 class="msg"></h1>
+        <div class="cutie">
+        <img src="images/cute cat ramen.jpg" alt="">
 
-                
-                    <p id="timer">2:00</p>
-                      <h1 class="msg"></h1>
-                          <section id="memory-game" class="hide">
-                              <div class="card" data-id="burger">
-                                <img src="images/burger.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="burger" >
-                                <img src="images/burger.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="fries">
-                                <img src="images/fries.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="fries">
-                                <img src="images/fries.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="pasta">
-                                <img src="images/pasta.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card"data-id="pasta" >
-                                <img src="images/pasta.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card"data-id="pizza" >
-                                <img src="images/pizza.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="pizza">
-                                <img src="images/pizza.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                          </section>
-                            <button id="reset">Reset Game</button>
-                           
+        </div>
+
+          <button class="playButton" id="hide">Play!</button>
+        
+                  </main> 
+       <main id="gameBoard" class="hide">
+        
+          <p id="timer">00:00</p>
+          <h1 class="msg"></h1>
+          <h1 class="winLoss"></h1>
+
+            <section class="memory-game" >
+
+               <div class="card" data-id="burger">
+                   <img src="images/burger.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="burger" >
+                   <img src="images/burger.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="fries">
+                   <img src="images/fries.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="fries">
+                   <img src="images/fries.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="pasta">
+                   <img src="images/pasta.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card"data-id="pasta" >
+                   <img src="images/pasta.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card"data-id="pizza" >
+                   <img src="images/pizza.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="pizza">
+                   <img src="images/pizza.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+
+               </section>
+
+      <button onClick="window.location.reload();" class="reset">Reset</button>
+
+      </main>    
+
 </body>   
-   
-                    
-                    
+                     
 <script src="script.js"></script>
 </html>
 
 
-```
-2.  in js:
+
 
 ```
-const cards = document.querySelectorAll(".card")
+
+2. in css:
+
+```
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  height: 100vh;
+  background-color: thistle;
+  display: flex;
+}
+
+
+.memory-game{
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px ;
+  height: 600px ;
+}
+
+
+.card{
+  margin: 5px;
+  width: calc(25% - 10px);
+  height: calc(50% - 10px);
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+
+.card :active {
+  transform: scale(1);
+  transition: transfprm .2s;
+}
+
+
+.front,
+.back{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+
+.front{
+  transform: rotateY(180deg);
+}
+
+
+.card.flip {
+        transform: rotateY(180deg);
+    }
+
+
+
+p {
+    background-color: black;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin: auto;
+    justify-content: center;
+    padding: 30px 5px 10px 5px; 
+    border: 5px;
+    height: 50px;
+    width: 100px;
+    border-radius: 100%;
+  
+
+}
+.cutie{
+  margin-left: 79%;
+ 
+}
+
+
+ .hide {
+  display: none;
+  align-items: center;
+  margin-left: 10%;
+} 
+
+
+.play-game.hide{
+  display: flex;
+}
+
+
+.playButton{
+  margin-left: 119%;
+  font-size: 60px;
+  
+}
+
+
+.reset{
+  margin-left: 45%;
+  font-size: 48px;
+  
+}
+
+```
+
+3. in js:
+
+```
+
+const cards = [...document.querySelectorAll(".card")]
+const message = document.querySelector(".msg")
+const winLossMsg = document.querySelector(".winLoss")
+const playButton = document.querySelector(".playButton") 
+const resetButton = document.querySelector("#reset")
+const resetButtonId = document.querySelector("#hide")
+const timer = document.querySelector("#timer")
+const gameBoard = document.querySelector(".hide")
+const image = document.querySelector(".cutie")
+const startingTime = 0
+
+
+
+function switchPage (){
+    const hidden = document.querySelector(".hide")
+    hidden.style.display = "block"
+    document.getElementById("hide").style.display = this.style.display = "none"
+    image.classList.add("hide")
+    }
+
+    
+cards.forEach(card => card.addEventListener("click", flipCard) )
+
+
+
+playButton.addEventListener("click", switchPage)
+
+
+
 
 chosenCards = []
 wrongCards = []
+let flippedCard = false
+let firstCard
+let secondCard
+let time = startingTime * 60 
+let minutes = 0
+let seconds = 0
+
+const updateCountdown = setInterval(() =>{
+    
+    
+    let minutes = Math.floor(time / 60) 
+    let seconds = Math.floor(time % 60 )
+    time++;
+    timer.innerHTML = minutes + " : " + seconds
+   
+
+    
+}, 1000)
+
+
+
+function flipCard () {
+this.classList.add("flip")
+
+if (!flippedCard){
+
+    flippedCard = true
+    firstCard = this
+
+
+} else {
+
+    flippedCard = false
+    secondCard = this
+checkForMatch()
+
+
+    }
+
+}
+
+
+function checkForMatch () {
+
+    if (firstCard.dataset.id === secondCard.dataset.id){   
+    cardsMatch()
+    chosenCards.push(firstCard.dataset.id, secondCard.dataset.id)
+    winOrLose() 
+    
+    }else{
+
+    cardsDontMatch()
+    message.innerHTML = ("not quite!")
+
+    //push the cards clicked to our empty wrongCards[]
+    wrongCards.push(firstCard.dataset.id, secondCard.dataset.id)
+    winOrLose()
+}
+
+
+
+function cardsMatch () {
+    firstCard.removeEventListener("click", flipCard)
+    secondCard.removeEventListener("click", flipCard)
+}
+
+
+function cardsDontMatch () {
+    setTimeout(() => {   
+    firstCard.classList.remove("flip")
+    secondCard.classList.remove("flip")
+    message.innerHTML = ""
+    }, 500)
+}
+
+
+function winOrLose () { 
+     setTimeout(() => {
+    if (chosenCards.length === 8 ){ 
+       document.querySelector(".winLoss").innerHTML = ("you win!") 
+      
+
+
+    }else if (wrongCards.length === 4){
+       document.querySelector(".msg").innerHTML = "" 
+       document.querySelector(".winLoss").innerHTML = ("you lose") 
+    }
+    
+ }, 100)
+}
+    
+}
 
 ```
 > create elements to hold starter page, timer, and the pictures of the front/back of cards
-    
+
+> Give them some styling so it'll be visible to the player   
      
-> Grab the cards created from HTML and make empty array's for wrong/right matches
+> Grab all needed elements, define all needed variables, and give them functionality
 
 
        
@@ -125,6 +369,7 @@ wrongCards = []
 1. in my html:
 ```
      <button class="playButton">Play game!</button>
+
 ```
 
 2. in my js:
@@ -210,46 +455,52 @@ wrongCards = []
 
 1. in my HTML:
 ```
-    <h1 class="winLoss"></h1>
+    <main id="gameBoard" class="hide">
+        
+          <p id="timer">00:00</p>
+          <h1 class="msg"></h1>
+          <h1 class="winLoss"></h1>
 
-                
-                    <p id="timer">2:00</p>
-                      <h1 class="msg"></h1>
-                          <section id="memory-game" class="hide">
-                              <div class="card" data-id="burger">
-                                <img src="images/burger.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="burger" >
-                                <img src="images/burger.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="fries">
-                                <img src="images/fries.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="fries">
-                                <img src="images/fries.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="pasta">
-                                <img src="images/pasta.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card"data-id="pasta" >
-                                <img src="images/pasta.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card"data-id="pizza" >
-                                <img src="images/pizza.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="pizza">
-                                <img src="images/pizza.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                          </section>
-                            <button id="reset">Reset Game</button>
+            <section class="memory-game" >
+
+               <div class="card" data-id="burger">
+                   <img src="images/burger.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="burger" >
+                   <img src="images/burger.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="fries">
+                   <img src="images/fries.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="fries">
+                   <img src="images/fries.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="pasta">
+                   <img src="images/pasta.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card"data-id="pasta" >
+                   <img src="images/pasta.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card"data-id="pizza" >
+                   <img src="images/pizza.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="pizza">
+                   <img src="images/pizza.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+
+               </section>
+
+      <button onClick="window.location.reload();" class="reset">Reset</button>
+
+      </main>    
                            
 ```
 2. in my js:
@@ -261,6 +512,18 @@ const winLossMsg = document.querySelector(".winLoss")
 const playButton = document.querySelector(".playButton") 
 const resetButton = document.querySelector("#reset")
 const timer = document.querySelector("#timer")
+
+
+playButton.addEventListener("click", switchPage)
+
+
+function switchPage (){
+    const cardsHidden = document.querySelector(".hide")
+    const gameButton =  document.querySelector(".playButton")
+    if  (cardsHidden.style.display = "block"){
+       gameButton.style.display = "block"
+    }
+    }
 
 ```
 
@@ -304,6 +567,8 @@ body{
 ```
 >select all elements that exist within the gameboard to add easy functionality to them
 
+>create a function that unhides the hide class and shows the gameboard
+
 >Add styling to the gameboard
 
 **-As a user i want to be able to see my gameboard**
@@ -311,46 +576,52 @@ body{
 1. in my HTML:
 
 ```
-       <h1 class="winLoss"></h1>
+         <main id="gameBoard" class="hide">
+        
+          <p id="timer">00:00</p>
+          <h1 class="msg"></h1>
+          <h1 class="winLoss"></h1>
 
-                
-                    <p id="timer">2:00</p>
-                      <h1 class="msg"></h1>
-                          <section id="memory-game" class="hide">
-                              <div class="card" data-id="burger">
-                                <img src="images/burger.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="burger" >
-                                <img src="images/burger.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="fries">
-                                <img src="images/fries.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="fries">
-                                <img src="images/fries.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="pasta">
-                                <img src="images/pasta.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card"data-id="pasta" >
-                                <img src="images/pasta.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card"data-id="pizza" >
-                                <img src="images/pizza.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                              <div class="card" data-id="pizza">
-                                <img src="images/pizza.png" alt="" class="front">
-                                <img src="images/question.png" alt="" class="back">
-                              </div>
-                          </section>
-                            <button id="reset">Reset Game</button>
+            <section class="memory-game" >
+
+               <div class="card" data-id="burger">
+                   <img src="images/burger.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="burger" >
+                   <img src="images/burger.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="fries">
+                   <img src="images/fries.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="fries">
+                   <img src="images/fries.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="pasta">
+                   <img src="images/pasta.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card"data-id="pasta" >
+                   <img src="images/pasta.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card"data-id="pizza" >
+                   <img src="images/pizza.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+                <div class="card" data-id="pizza">
+                   <img src="images/pizza.png" alt="" class="front">
+                   <img src="images/question.png" alt="" class="back">
+                </div>
+
+               </section>
+
+      <button onClick="window.location.reload();" class="reset">Reset</button>
+
+      </main>    
 ```                           
 
 2. in my css:
