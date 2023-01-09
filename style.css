@@ -32,10 +32,10 @@ body{
 }
 
 
-.card :active {
+/* .card :active {
   transform: scale(1);
   transition: transfprm .2s;
-}
+} */
 
 
 .front,
