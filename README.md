@@ -16,8 +16,8 @@
 4. There are 8 cards, meaning there are 4 pairs of
 pictures. Find them all with less than 2 wrong guesses and you win the game!
 
-**LAUNCH GAME HERE**
-[MemoryGame](https://godise.github.io/Project-1-game/)
+  **LAUNCH GAME HERE**
+  [MemoryGame](https://godise.github.io/Project-1-game/)
 
 
 ## TECHNOLOGIES USED
