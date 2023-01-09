@@ -1,5 +1,11 @@
 # Concentration game
 
+
+
+![alt text](images/PlanningStarter.png)
+![alt text](images/planningGamePg.png)
+
+
 ## WHAT THE GAME WILL BE ABOUT
 -A memory game that will require players to match cards of the same picture
 -The player will have a limited amount of time to 
