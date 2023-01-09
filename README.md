@@ -2,18 +2,17 @@
 
 ## WHAT THE GAME WILL BE ABOUT
 
--A memory game that will require the player to match cards of the same picture
--The player will have 2 attempts to 
-match 4 pairs of pictures
--If all pairs are matched, the player wins the game
--If the player gets 2 incorrect matches, the player loses
+1. A memory game that will require the player to match cards of the same picture
+2. The player will have 2 attempts to match 4 pairs of pictures
+3. If all pairs are matched, the player wins the game
+4. If the player gets 2 incorrect matches, the player loses
 
 
 ## GETTING STARTED/ HOW TO PLAY
 
 1. Find the 4 pairs of matching pictures 
 2. click on each image and remember where it is, try to find a match to that picture by clicking on another card
-3.  This game is all about memory! So try and remember where the images are placed
+3. This game is all about memory! So try and remember where the images are placed
 4. There are 8 cards, meaning there are 4 pairs of
 pictures. Find them all with less than 2 wrong guesses and you win the game!
 
