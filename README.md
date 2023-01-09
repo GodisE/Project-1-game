@@ -23,7 +23,7 @@ pictures. Find them all with less than 2 wrong guesses and you win the game!
 ![alt text](images/GamePg.png)
 
 
-## MV USER-STORIES
+## TIER1 USER-STORIES
 
 1. **-As a user i want to play the game**     
 2. **-As a user i want to click the play button**
