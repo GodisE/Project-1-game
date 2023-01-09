@@ -1,4 +1,4 @@
-# Concentration game
+# Memory Game
 
 ## WHAT THE GAME WILL BE ABOUT
 
@@ -16,6 +16,10 @@ match 4 pairs of pictures
 3.  This game is all about memory! So try and remember where the images are placed
 4. There are 8 cards, meaning there are 4 pairs of
 pictures. Find them all with less than 2 wrong guesses and you win the game!
+
+**LAUNCH GAME HERE**
+[MemoryGame](https://godise.github.io/Project-1-game/)
+
 
 ## TECHNOLOGIES USED
 1. Html
@@ -610,5 +614,3 @@ function checkCardsMatch () {
 **-As a user I want to join an online game**
 
 
-## LAUNCH GAME HERE
-[MemoryGame](https://godise.github.io/Project-1-game/)
