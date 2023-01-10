@@ -166,7 +166,7 @@ function winOrLose () {
        document.querySelector(".winLoss").innerHTML = ("you win!") 
        //using clearInterval to stop timer
        clearInterval(updateCountdown)
-      
+       cards.forEach(card => card.removeEventListener("click", flipCard) ) 
 
 
     //else if our empty wrongCards array's length is strictly equal to 4
@@ -177,7 +177,7 @@ function winOrLose () {
        document.querySelector(".winLoss").innerHTML = ("you lose") 
        //using clearInterval to stop timer
        clearInterval(updateCountdown)
-
+       cards.forEach(card => card.removeEventListener("click", flipCard) )  
        
     }
     
