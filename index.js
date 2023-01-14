@@ -138,7 +138,7 @@ function cardsMatch () {
 //create a function for cards that dont match
 function cardsDontMatch () {
     //use setTimeout() to slow down the process of this block
-    setTimeout(() => {
+setTimeout(() => {
     //remove the first and second cards clicked, flip class    
     firstCard.classList.remove("flip")
     secondCard.classList.remove("flip")
