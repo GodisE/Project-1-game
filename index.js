@@ -1,6 +1,3 @@
-//grabbing all elements needed for easy access and adding functioning
-
-//turning our cards nodeList into an array
 const cards = [...document.querySelectorAll(".card")]
 const message = document.querySelector(".msg")
 const winLossMsg = document.querySelector(".winLoss")
@@ -28,7 +25,7 @@ function switchPage (){
     }
 
     //add an event listener to each individual element with a class of card 
-    cards.forEach(card => card.addEventListener("click", flipCard) )
+cards.forEach(card => card.addEventListener("click", flipCard) )
 
 
 
@@ -57,8 +54,7 @@ let seconds = 0
 
 //create a variable to update the DOM of the timer each second
 //using setInterval() to update the DOM each second
-const updateCountdown = setInterval(() =>{
-    
+setInterval(function(){
     //update the minutes each minute
     let minutes = Math.floor(time / 60) 
     //update the seconds each second
@@ -67,9 +63,6 @@ const updateCountdown = setInterval(() =>{
     time++;
     //update the DOM with moving minutes and seconds
     timer.innerHTML = minutes + " : " + seconds
-   
-
-    
 }, 1000)
 
 
@@ -108,17 +101,17 @@ function checkForMatch () {
 
     //if the data inside the first card clicked matches the data inside
     //the second card clicked
-    if (firstCard.dataset.id === secondCard.dataset.id){
+if (firstCard.dataset.id === secondCard.dataset.id){
     //invoke the cardsMatch function    
-    cardsMatch()
+cardsMatch()
      // push the cards clicked to our empty chosenCards[]
     //invoke checkCardsMatch function
     chosenCards.push(firstCard.dataset.id, secondCard.dataset.id)
-    winOrLose() 
+winOrLose() 
     
     //else invoke the cardsDontMatch function and 
-    }else{
-    cardsDontMatch()
+}else{
+cardsDontMatch()
 
     //update the the empty msg element with text 
     message.innerHTML = ("not quite!")
@@ -127,7 +120,7 @@ function checkForMatch () {
     wrongCards.push(firstCard.dataset.id, secondCard.dataset.id)
 
     //invoke checkCardsMatch function
-    winOrLose()
+winOrLose()
 }
 
 
@@ -161,24 +154,21 @@ function winOrLose () {
     //use setTimeout to slowdown the process of this block
      setTimeout(() => {
     //if our empty chosenCards array's length is equal to 8
-    if (chosenCards.length === 8 ){
+if (chosenCards.length === 8 ){
        //update the empty message element with text  
-       document.querySelector(".winLoss").innerHTML = ("you win!") 
+    document.querySelector(".winLoss").innerHTML = ("you win!") 
        //using clearInterval to stop timer
-       clearInterval(updateCountdown)
-       cards.forEach(card => card.removeEventListener("click", flipCard) ) 
+cards.forEach(card => card.removeEventListener("click", flipCard) )  
 
 
     //else if our empty wrongCards array's length is strictly equal to 4
-    }else if (wrongCards.length === 4){
+}else if (wrongCards.length === 4){
         //clear the inner HTML of out message element
-       document.querySelector(".msg").innerHTML = "" 
+    document.querySelector(".msg").innerHTML = "" 
         //update the empty winLoss with text
-       document.querySelector(".winLoss").innerHTML = ("you lose") 
+    document.querySelector(".winLoss").innerHTML = ("you lose") 
        //using clearInterval to stop timer
-       clearInterval(updateCountdown)
-       cards.forEach(card => card.removeEventListener("click", flipCard) )  
-       
+cards.forEach(card => card.removeEventListener("click", flipCard) )      
     }
     
  }, 100)
@@ -207,8 +197,378 @@ function winOrLose () {
 
 
 
+
+
      
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
 
 
 

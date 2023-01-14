@@ -49,4 +49,3 @@ pictures. Find them all with less than 2 wrong guesses and you win the game!
 
 1. **-As a user I want to join an online game**
 
-
