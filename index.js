@@ -152,7 +152,7 @@ setTimeout(() => {
 //create a function for win/lose logic
 function winOrLose () { 
     //use setTimeout to slowdown the process of this block
-     setTimeout(() => {
+setTimeout(() => {
     //if our empty chosenCards array's length is equal to 8
 if (chosenCards.length === 8 ){
        //update the empty message element with text  
