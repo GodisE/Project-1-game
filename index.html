@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head><!-- no title in head element -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" /> <!-- the css style link goes in the head -->
 
   <body>
     <section id="starterPage">
@@ -21,7 +21,7 @@
       <h1 class="winLoss"></h1>
 
       <section class="memory-game">
-        <div class="card" data-id="burger">
+        <div class="card" data-id="burger"> <!-- we should make the cards programmatically -->
           <img src="images/burger.png" alt="" class="front" />
           <img src="images/question.png" alt="" class="back" />
         </div>
@@ -55,7 +55,7 @@
         </div>
       </section>
 
-      <button onClick="window.location.reload();" class="reset">Reset</button>
+      <button onClick="window.location.reload();" class="reset">Reset</button> <!-- fancy way to refresh the page is not going to do use any favors when we want to retain any data. Use JS to do your reset instead -->
     </main>
   </body>
 
