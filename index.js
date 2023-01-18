@@ -1,4 +1,4 @@
-const cards = [...document.querySelectorAll(".card")];
+const cards = [...document.querySelectorAll(".card")]; // slick use of the spread operator, can't help but wonder if it's necessary, could just have it equal to the `document.querySelectorAll(".card")` ?
 const message = document.querySelector(".msg");
 const winLossMsg = document.querySelector(".winLoss");
 const playButton = document.querySelector(".playButton");
@@ -11,12 +11,12 @@ const startingTime = 0;
 
 //create a function to switch the pages
 function switchPage() {
-  //grab the elements with the class of "die"
-  const hidden = document.querySelector(".hide");
+  //grab the elements with the class of "die" // typo? -> "hide"
+  const hidden = document.querySelector(".hide"); //  is this not the game board cached above on line 8 ?
   //stop them from being seen by blocking display
   hidden.style.display = "block";
   //grab the element with an id of "hide" and block its display onclick
-  document.getElementById("hide").style.display = this.style.display = "none";
+  document.getElementById("hide").style.display = this.style.display = "none"; // id of hide is very non specific, ntm you already have a class of hide, consider changing the id
   //add a class of "hide" to the image on starter page, so it
   //won't be visible to the player onclick
   image.classList.add("hide");
@@ -24,20 +24,20 @@ function switchPage() {
 }
 
 //add an event listener to each individual element with a class of card
-cards.forEach((card) => card.addEventListener("click", flipCard));
+cards.forEach((card) => card.addEventListener("click", flipCard)); // slick 1 liner with short hand arrow function
 
 //add click event listener to play button and onclick, invoke the switchPage function
 playButton.addEventListener("click", switchPage);
 
-//when a match is made put it in here
-chosenCards = [];
+//when a match is made put it in here // good comments
+chosenCards = []; // const, don't use variable declaration if you don't HAVE to, especially when we have been use variable expressions
 //when a pair is incorrect put it here
-wrongCards = [];
+wrongCards = []; // see 33
 //boolean variable to detect if cards are flipped
 let flippedCard = false;
 //variables to hold the first and second card clicked
-let firstCard;
-let secondCard;
+let firstCard; // if we intend to let these variables be empty, set them to null ( the intentional absence of value)
+let secondCard; // see 39
 //variables to show each second of the timer
 let time = startingTime * 60;
 //variables holding seconds and minutes of timer
@@ -48,7 +48,7 @@ let seconds = 0;
 //using setInterval() to update the DOM each second
 function countingTimer() {
   //update the minutes each minute
-  let minutes = Math.floor(time / 60);
+  let minutes = Math.floor(time / 60); // these variable expressions seem redundant with the ones on 44 45
   //update the seconds each second
   let seconds = Math.floor(time % 60);
   //increase the time
@@ -68,13 +68,13 @@ function flipCard() {
   //the undefined firstCard variable
   if (!flippedCard) {
     flippedCard = true;
-    firstCard = this;
+    firstCard = this; // nice use of this! 
 
     //else, the second card clicked fills the undefined secondCard
     //variable, and flipped card returns to false for the next set,
     //and the checkForMatch function is invoked
   } else {
-    flippedCard = false;
+    flippedCard = false; // can't help but feel checkForMatch should handle this value change 
     secondCard = this;
     checkForMatch();
   }
@@ -90,25 +90,25 @@ function checkForMatch() {
     cardsMatch();
     // push the cards clicked to our empty chosenCards[]
     //invoke checkCardsMatch function
-    chosenCards.push(firstCard.dataset.id, secondCard.dataset.id);
+    chosenCards.push(firstCard.dataset.id, secondCard.dataset.id); // could we add this to cardsMatch instead ?
     winOrLose();
 
     //else invoke the cardsDontMatch function and
   } else {
-    cardsDontMatch();
+		cardsDontMatch()
 
-    //update the the empty msg element with text
-    message.innerHTML = "not quite!";
+		//update the the empty msg element with text
+		message.innerHTML = 'not quite!'
 
-    //push the cards clicked to our empty wrongCards[]
-    wrongCards.push(firstCard.dataset.id, secondCard.dataset.id);
+		//push the cards clicked to our empty wrongCards[]
+		wrongCards.push(firstCard.dataset.id, secondCard.dataset.id) // could we add this to cardsDontMatch instead ?
 
-    //invoke checkCardsMatch function
-    winOrLose();
-  }
+		//invoke checkCardsMatch function
+		winOrLose()
+	}
 
   //create a function for cards that match
-  function cardsMatch() {
+  function cardsMatch() { // we shouldn't have this function declared in another function if we can help it. 
     //remover the event listener and flipCard function of the matching cards
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
@@ -127,7 +127,7 @@ function checkForMatch() {
   }
 
   //create a function for win/lose logic
-  function winOrLose() {
+  function winOrLose() { // see 111
     //use setTimeout to slowdown the process of this block
     setTimeout(() => {
       //if our empty chosenCards array's length is equal to 8
