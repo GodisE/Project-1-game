@@ -3,9 +3,8 @@ const frontCard = document.querySelector(".front")
 const message = document.querySelector(".msg");
 const winLossMsg = document.querySelector(".winLoss");
 const playButton = document.querySelector(".playButton");
-const timer = document.querySelector("#timer");
-const gameBoard = document.querySelector(".hide");
-const image = document.querySelector(".cutie");
+const gameBoard = document.querySelector(".gameboard");
+const starterPg = document.querySelector("#starter");
 const startingTime = 0;
 const scoreBoard = document.querySelector(".score")
 const container = document.querySelector(".container")
@@ -14,22 +13,15 @@ let score = 0
 const modal = document.querySelector("#modal")
 //create a function to switch the pages
 function switchPage() {
-  //grab the elements with the class of "die"
-  const hidden = document.querySelector(".hide");
-  //stop them from being seen by blocking display
-  hidden.style.display = "block";
-  //grab the element with an id of "hide" and block its display onclick
-  document.getElementById("hide").style.display = this.style.display = "none";
-  //add a class of "hide" to the image on starter page, so it
-  //won't be visible to the player onclick
-  image.classList.add("hide");
+  starterPg.classList.add("hide")
+  gameBoard.classList.remove("hide")
 }
 
 //add an event listener to each individual element with a class of card
 cards.forEach((card) => card.addEventListener("click", flipCard));
 
 //add click event listener to play button and onclick, invoke the switchPage function
-// playButton.addEventListener("click", switchPage);
+playButton.addEventListener("click", switchPage);
 
 //when a match is made put it in here
 chosenCards = [];

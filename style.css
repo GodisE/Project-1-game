@@ -1,9 +1,23 @@
+*{
+  margin: 5%;
+}
+
+
 body{
   align-items: center;
   background-color: #cc6060;
 }
 
+.cutie{
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+}
 
+h1,
+h2{
+  text-align: center;
+}
 
 
 .card{
@@ -13,6 +27,7 @@ body{
   transition: transform .5s;
   box-shadow: 30px 10px 5px #921d3a;
   border-radius: 100%;
+  display: inline;
 }
 
 
@@ -32,6 +47,7 @@ body{
   backface-visibility: hidden;
   border-radius: 100%;
   background-color: black;
+  
 }
 
 
@@ -41,53 +57,16 @@ body{
 
 
 .card.flip {
-        transform: rotateY(180deg);
-    }
-
-
-
-p {
-    background-color: black;
-    align-items: center;
-    text-align: center;
-    color: white;
-    margin: auto;
-    justify-content: center;
-    padding: 30px 5px 10px 5px; 
-    border: 5px;
-    height: 50px;
-    width: 100px;
-  
-
-}
-.cutie{
-  margin-left: 79%;
- 
+  transform: rotateY(180deg);
 }
 
 
  .hide {
   display: none;
-  align-items: center;
-  margin-left: 10%;
 } 
 
 
-.play-game.hide{
-  display: flex;
-}
-
-
-.playButton{
-  margin-left: 119%;
-  font-size: 60px;
-  
-}
-
-
 .reset{
-  margin-left: 45%;
   font-size: 48px;
   
 }
-
