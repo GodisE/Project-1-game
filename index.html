@@ -12,8 +12,9 @@
 
 <body>
   <div class="container" id="starter">
+    <h1>Welcome To Nature's Memory Game</h1>
     <img class="cutie" src="images/pleasework.jpg" alt="" />
-    <button class="playButton" >Play!</button>
+    <button class="btn btn-outline-dark playButton" >Play!</button>
   </div>
   <!-- cards -->
   <main class="gameboard hide">
@@ -21,25 +22,9 @@
     <h1 class="winLoss"></h1>
     <h2 class="msg"></h2>
     <h2 class="score">Score: 0</h2>
-    <button stype="button" class="btn btn-outline-dark" onClick="window.location.reload(); "
+    <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-outline-dark" onClick="window.location.reload(); "
     class="reset">Reset</button>
-    <div class="row justify-content-around">
-      <div class="card col-2" data-id="flower1" style="width: 20rem; height: 10rem;">
-        <img src="images/flower1.jpg" alt="" class="front" />
-        <img src="images/question.png" alt="" class="back" />
-      </div>
-      <div class="card col-2" data-id="flower1" style="width: 20rem; height: 10rem;">
-        <img src="images/flower1.jpg" alt="" class="front" />
-        <img src="images/question.png" alt="" class="back" />
-      </div>
-      <div class="card col-2" data-id="flower2" style="width: 20rem; height: 10rem;">
-        <img src="images/flower2.jpg" alt="" class="front" />
-        <img src="images/question.png" alt="" class="back" />
-      </div>
-      <div class="card col-2" data-id="flower2" style="width: 20rem; height: 10rem;">
-        <img src="images/flower2.jpg" alt="" class="front" />
-        <img src="images/question.png" alt="" class="back" />
-      </div>
     </div>
     <div class="row justify-content-around">
       <div class="card col-2" data-id="flower3" style="width: 20rem; height: 10rem;">

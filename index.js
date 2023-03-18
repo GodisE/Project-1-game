@@ -114,7 +114,7 @@ function checkForMatch() {
     //use setTimeout to slowdown the process of this block
     setTimeout(() => {
       //if our empty chosenCards array's length is equal to 8
-      if (chosenCards.length === 16) {
+      if (chosenCards.length === 12) {
         //update the empty message element with text
         document.querySelector(".winLoss").innerHTML = "you win!";
         //using clearInterval to stop timer
@@ -122,7 +122,7 @@ function checkForMatch() {
 
         modal.classList.remove("hide")
         //else if our empty wrongCards array's length is strictly equal to 4
-      } else if (wrongCards.length === 8) {
+      } else if (wrongCards.length === 6) {
         modal.classList.remove("hide")
 
         //clear the inner HTML of out message element
