@@ -1,16 +1,11 @@
 const cards = [...document.querySelectorAll(".card")];
-const frontCard = document.querySelector(".front")
 const message = document.querySelector(".msg");
-const winLossMsg = document.querySelector(".winLoss");
 const playButton = document.querySelector(".playButton");
 const gameBoard = document.querySelector(".gameboard");
 const starterPg = document.querySelector("#starter");
-const startingTime = 0;
 const scoreBoard = document.querySelector(".score")
-const container = document.querySelector(".container")
-console.log(container.children)
 let score = 0
-const modal = document.querySelector("#modal")
+
 //create a function to switch the pages
 function switchPage() {
   starterPg.classList.add("hide")
@@ -120,11 +115,8 @@ function checkForMatch() {
         //using clearInterval to stop timer
         cards.forEach((card) => card.removeEventListener("click", flipCard));
 
-        modal.classList.remove("hide")
         //else if our empty wrongCards array's length is strictly equal to 4
-      } else if (wrongCards.length === 6) {
-        modal.classList.remove("hide")
-
+      } else if (wrongCards.length === 4) {
         //clear the inner HTML of out message element
         document.querySelector(".msg").innerHTML = "";
         //update the empty winLoss with text

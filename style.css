@@ -1,5 +1,5 @@
 *{
-  margin: 5%;
+  margin:0;
 }
 
 
@@ -66,10 +66,38 @@ h2{
 } 
 
 
-.reset,
-.playButton{
+.reset{
   display: flex;
+}
+
+
+
+#starter{
+  position: relative;
+}
+
+#img{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#text {
+  z-index: 100;
+  position: absolute;
+  color: lightblue;
+  left: 22%;
+  top: 25%;
+}
+
+.playButton{
+  position: absolute; 
+  margin-top: 18%;
+  margin-left: 48%;
+  size: 20%;
+}
+
+.gameboard{
+  width: 50%;
   margin: auto;
-  justify-content: center;  
-  align-items: center;  
 }
