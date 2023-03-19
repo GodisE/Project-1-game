@@ -1,50 +1,53 @@
 *{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  margin:0;
 }
 
 
 body{
-  height: 100vh;
-  background-color: thistle;
-  display: flex;
+  align-items: center;
+  background-color: #cc6060;
 }
 
-
-.memory-game{
+.cutie{
+  height: 100vh;
+  width: 100%;
   margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  width: 1200px ;
-  height: 600px ;
+}
+
+h1,
+h2{
+  text-align: center;
 }
 
 
 .card{
   margin: 5px;
-  width: calc(25% - 10px);
-  height: calc(50% - 10px);
-  position: relative;
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform .5s;
+  box-shadow: 30px 10px 5px #921d3a;
+  border-radius: 100%;
+  display: inline;
 }
 
 
-/* .card :active {
+.card :active {
   transform: scale(1);
-  transition: transfprm .2s;
-} */
+  transition: transform .2s;
+}
 
 
 .front,
 .back{
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  top: 0px;
+  left: 0px;
   position: absolute;
   backface-visibility: hidden;
+  border-radius: 100%;
+  background-color: black;
+  
 }
 
 
@@ -54,53 +57,47 @@ body{
 
 
 .card.flip {
-        transform: rotateY(180deg);
-    }
-
-
-
-p {
-    background-color: black;
-    align-items: center;
-    text-align: center;
-    color: white;
-    margin: auto;
-    justify-content: center;
-    padding: 30px 5px 10px 5px; 
-    border: 5px;
-    height: 50px;
-    width: 100px;
-    border-radius: 100%;
-  
-
-}
-.cutie{
-  margin-left: 79%;
- 
+  transform: rotateY(180deg);
 }
 
 
  .hide {
   display: none;
-  align-items: center;
-  margin-left: 10%;
 } 
 
 
-.play-game.hide{
+.reset{
   display: flex;
 }
 
 
-.playButton{
-  margin-left: 119%;
-  font-size: 60px;
-  
+
+#starter{
+  position: relative;
 }
 
+#img{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 
-.reset{
-  margin-left: 45%;
-  font-size: 48px;
-  
+#text {
+  z-index: 100;
+  position: absolute;
+  color: lightblue;
+  left: 22%;
+  top: 25%;
+}
+
+.playButton{
+  position: absolute; 
+  margin-top: 18%;
+  margin-left: 48%;
+  size: 20%;
+}
+
+.gameboard{
+  width: 50%;
+  margin: auto;
 }

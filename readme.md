@@ -15,13 +15,15 @@ pictures. Find them all with less than 2 wrong guesses and you win the game!
 
 
 ## TECHNOLOGIES USED
-1. Html
-2. Css
-3. Javascript
+1. HTML
+2. CSS
+3. JavaScript
+4. Bootstrap
 
 ## WIREFRAMES
-![alt text](images/StarterPg.png)
-![alt text](images/GamePg.png)
+![alt text](images/playPg.png)
+![alt text](images/youWin.png)
+![alt text](images/youLose.png)
 
 
 ## TIER1 USER-STORIES
@@ -31,10 +33,10 @@ pictures. Find them all with less than 2 wrong guesses and you win the game!
 3. **-As a user i want to be able to see my gameboard**
 4. **-As a user i want to reset the game**   
 5. **-As a user i want to have a message that tells me i won/lost**
-6. **-As a user i want to see my timer**
+6. **-As a user i want to see my score**
 7. **-As a user i want to know if i won**
 8. **-As a user i want to know if i lost**
-9. **-As a user i want to see timer count up**
+9. **-As a user i want to see my score increase or decrease depending on correct/incorrect matches**
 10. **-As a user i want to know when the game is over**
 
 

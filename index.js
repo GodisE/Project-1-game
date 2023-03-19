@@ -1,26 +1,15 @@
 const cards = [...document.querySelectorAll(".card")];
 const message = document.querySelector(".msg");
-const winLossMsg = document.querySelector(".winLoss");
 const playButton = document.querySelector(".playButton");
-const resetButton = document.querySelector("#reset");
-const resetButtonId = document.querySelector("#hide");
-const timer = document.querySelector("#timer");
-const gameBoard = document.querySelector(".hide");
-const image = document.querySelector(".cutie");
-const startingTime = 0;
+const gameBoard = document.querySelector(".gameboard");
+const starterPg = document.querySelector("#starter");
+const scoreBoard = document.querySelector(".score")
+let score = 0
 
 //create a function to switch the pages
 function switchPage() {
-  //grab the elements with the class of "die"
-  const hidden = document.querySelector(".hide");
-  //stop them from being seen by blocking display
-  hidden.style.display = "block";
-  //grab the element with an id of "hide" and block its display onclick
-  document.getElementById("hide").style.display = this.style.display = "none";
-  //add a class of "hide" to the image on starter page, so it
-  //won't be visible to the player onclick
-  image.classList.add("hide");
-  updateCountdown();
+  starterPg.classList.add("hide")
+  gameBoard.classList.remove("hide")
 }
 
 //add an event listener to each individual element with a class of card
@@ -38,28 +27,10 @@ let flippedCard = false;
 //variables to hold the first and second card clicked
 let firstCard;
 let secondCard;
-//variables to show each second of the timer
-let time = startingTime * 60;
-//variables holding seconds and minutes of timer
-let minutes = 0;
-let seconds = 0;
 
-//create a variable to update the DOM of the timer each second
-//using setInterval() to update the DOM each second
-function countingTimer() {
-  //update the minutes each minute
-  let minutes = Math.floor(time / 60);
-  //update the seconds each second
-  let seconds = Math.floor(time % 60);
-  //increase the time
-  time++;
-  //update the DOM with moving minutes and seconds
-  timer.innerHTML = minutes + " : " + seconds;
-}
 
-setInterval(countingTimer, 1000);
+
 //create a function to flip cards
-
 function flipCard() {
   //this represents the element that was clicked
   this.classList.add("flip");
@@ -88,6 +59,8 @@ function checkForMatch() {
   if (firstCard.dataset.id === secondCard.dataset.id) {
     //invoke the cardsMatch function
     cardsMatch();
+    score++
+    scoreBoard.innerHTML = `Score: ${score}` 
     // push the cards clicked to our empty chosenCards[]
     //invoke checkCardsMatch function
     chosenCards.push(firstCard.dataset.id, secondCard.dataset.id);
@@ -96,7 +69,12 @@ function checkForMatch() {
     //else invoke the cardsDontMatch function and
   } else {
     cardsDontMatch();
-
+    if(score === 0 ){
+      score
+    }else{
+      score--
+      scoreBoard.innerHTML = `Score: ${score}` 
+    }
     //update the the empty msg element with text
     message.innerHTML = "not quite!";
 
@@ -131,7 +109,7 @@ function checkForMatch() {
     //use setTimeout to slowdown the process of this block
     setTimeout(() => {
       //if our empty chosenCards array's length is equal to 8
-      if (chosenCards.length === 8) {
+      if (chosenCards.length === 12) {
         //update the empty message element with text
         document.querySelector(".winLoss").innerHTML = "you win!";
         //using clearInterval to stop timer
@@ -149,3 +127,27 @@ function checkForMatch() {
     }, 100);
   }
 }
+
+(function shuffle() {
+  cards.forEach(card => {
+    let random = Math.floor(Math.random() * 4)
+    card.style.order = random
+  })
+
+}
+)()
+
+// function shuffle(arr){
+//   for(let i = arr.length - 1; i > 0; i-- ){
+//     const j = Math.floor(Math.random() * (i + 1))
+
+//     let temp = arr[i]
+//     arr[i] = arr[j]
+//     arr[j] = temp
+//   }
+//   return arr
+// }
+
+// (function shuffleCards(){
+//   shuffle(cards)
+// })()
